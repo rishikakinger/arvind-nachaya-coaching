@@ -320,11 +320,51 @@ p {
   display: flex;
   align-items: center;
   position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+
+.hero-full .container {
+  z-index: 2;
 }
 
 .hero-full h1 {
   font-size: clamp(2.6rem, 6vw, 5.2rem);
   max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  text-shadow: 0 2px 40px rgba(0, 0, 0, 0.55);
+}
+
+/* CSS keyframe entrance — decoupled from the shader's WebGL rAF loop so
+   the two don't compete for frame budget. */
+.hero-h1 {
+  animation: hero-rise 1s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes hero-rise {
+  from { opacity: 0; transform: translateY(28px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Animated shader gradient behind the splash */
+.shader-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.shader-bg canvas {
+  display: block;
+}
+
+.shader-scrim {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(to bottom, rgba(13, 12, 10, 0.28) 0%, transparent 24%, transparent 70%, var(--ink) 100%);
 }
 
 .hero-scroll-cue {
@@ -332,6 +372,7 @@ p {
   bottom: 40px;
   left: 50%;
   transform: translateX(-50%);
+  z-index: 2;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -341,6 +382,12 @@ p {
   font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
+  animation: hero-cue-in 0.6s ease 0.9s both;
+}
+
+@keyframes hero-cue-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 .hero-scroll-cue-line {
@@ -349,6 +396,12 @@ p {
   background: linear-gradient(to bottom, var(--brass), transparent);
   transform-origin: top;
   display: block;
+  animation: hero-cue-pulse 1.8s ease-in-out infinite;
+}
+
+@keyframes hero-cue-pulse {
+  0%, 100% { transform: scaleY(1); }
+  50% { transform: scaleY(0.55); }
 }
 
 /* Hero: intro section (everything else, consolidated) */
@@ -1221,9 +1274,16 @@ footer {
   .btn,
   .faq-answer,
   .faq-icon,
-  .credibility-track {
+  .credibility-track,
+  .hero-h1,
+  .hero-scroll-cue,
+  .hero-scroll-cue-line {
     transition: none !important;
     animation: none !important;
+  }
+
+  .hero-h1 {
+    opacity: 1;
   }
 
   .reveal {
