@@ -48,23 +48,21 @@ export default function HomePage() {
           </div>
 
           <Reveal className="hero-bottom">
-            <div className="hero-copy-grid">
-              <p className="lead">
-                I work with senior leaders, founders, and emerging executives to
-                strengthen strategic thinking, executive presence, team leadership,
-                and resilience, helping them lead with greater clarity, confidence,
-                and lasting impact.
-              </p>
-              <p>
-                In today&apos;s demanding business environment, leadership calls for
-                far more than experience or technical expertise. It requires
-                perspective, self-awareness, adaptability, and the ability to stay
-                clear-headed under pressure. My coaching helps leaders develop these
-                qualities so they lead with greater presence and purpose, stay
-                aligned with their values, and grow confident in their decision
-                making.
-              </p>
-            </div>
+            <p className="lead">
+              I work with senior leaders, founders, and emerging executives to
+              strengthen strategic thinking, executive presence, team leadership,
+              and resilience, helping them lead with greater clarity, confidence,
+              and lasting impact.
+            </p>
+            <blockquote className="hero-aside">
+              In today&apos;s demanding business environment, leadership calls for
+              far more than experience or technical expertise. It requires
+              perspective, self-awareness, adaptability, and the ability to stay
+              clear-headed under pressure. My coaching helps leaders develop these
+              qualities so they lead with greater presence and purpose, stay
+              aligned with their values, and grow confident in their decision
+              making.
+            </blockquote>
 
             <div className="btn-group">
               <BookingDialog triggerClassName="btn btn-primary">

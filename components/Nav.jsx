@@ -79,10 +79,9 @@ export function Nav() {
           </AnimatedBackground>
 
           <div className="nav-actions">
-            <a href="tel:+919930407361" className="btn-ghost">
-              Call
-            </a>
-            <BookingDialog triggerClassName="btn btn-primary">Book a Call</BookingDialog>
+            <BookingDialog triggerClassName="btn btn-primary">
+              Book a Discovery Conversation
+            </BookingDialog>
           </div>
         </nav>
       </div>

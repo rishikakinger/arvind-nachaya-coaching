@@ -35,7 +35,7 @@ const FAQS = [
 ];
 
 export function FaqAccordion() {
-  const [openIndex, setOpenIndex] = useState(0);
+  const [openIndex, setOpenIndex] = useState(-1);
 
   return (
     <div className="grid-2">
