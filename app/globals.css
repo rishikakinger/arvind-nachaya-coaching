@@ -567,14 +567,21 @@ p {
   background: rgba(255, 255, 255, 0.03);
 }
 
+/* Restore bullets (Tailwind's preflight strips list-style) with a brass marker */
 .list {
-  padding-left: 18px;
+  list-style: disc;
+  padding-left: 20px;
   margin: 0;
   color: var(--stone);
 }
 
 .list li {
   margin-bottom: 10px;
+  padding-left: 4px;
+}
+
+.list li::marker {
+  color: var(--brass);
 }
 
 /* Pull quote — the signature device. Every pull-quote slot on the page
@@ -954,8 +961,15 @@ p {
   font-weight: 500;
 }
 
-.article-body ul,
+.article-body ul {
+  list-style: disc;
+  color: #d6cebd;
+  padding-left: 22px;
+  margin: 0 0 18px;
+}
+
 .article-body ol {
+  list-style: decimal;
   color: #d6cebd;
   padding-left: 22px;
   margin: 0 0 18px;
@@ -963,6 +977,10 @@ p {
 
 .article-body li {
   margin-bottom: 8px;
+}
+
+.article-body li::marker {
+  color: var(--brass);
 }
 
 .article-body a {
