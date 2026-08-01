@@ -1,0 +1,1067 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Arvind Nachaya | Executive Coaching</title>
+  <meta
+    name="description"
+    content="Executive coaching for leaders navigating growth, transition, and complexity."
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #08110f;
+      --bg-2: #0d1714;
+      --surface: rgba(255, 255, 255, 0.05);
+      --surface-2: rgba(255, 255, 255, 0.07);
+      --card-border: rgba(255, 255, 255, 0.1);
+      --text: #edf3f0;
+      --muted: #a8b6b0;
+      --primary: #d6a65a;
+      --primary-2: #f0c987;
+      --green: #17362f;
+      --shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+      --radius: 22px;
+      --max: 1200px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Inter", sans-serif;
+      background:
+        radial-gradient(circle at 15% 20%, rgba(214,166,90,0.12), transparent 28%),
+        radial-gradient(circle at 85% 10%, rgba(62,107,94,0.18), transparent 26%),
+        linear-gradient(180deg, #091210 0%, #07100f 100%);
+      color: var(--text);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+      background-size: 40px 40px;
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,0.35), transparent 85%);
+      z-index: 0;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(92%, var(--max));
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .section {
+      padding: 96px 0;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: 18px;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 34px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--primary));
+    }
+
+    h1, h2, h3 {
+      margin: 0 0 18px;
+      line-height: 1.08;
+    }
+
+    h1 {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(3rem, 6vw, 5.8rem);
+      letter-spacing: -0.03em;
+      max-width: 900px;
+    }
+
+    h2 {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      letter-spacing: -0.02em;
+      max-width: 760px;
+    }
+
+    h3 {
+      font-size: 1.15rem;
+    }
+
+    p {
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: 1.02rem;
+    }
+
+    .lead {
+      font-size: 1.12rem;
+      max-width: 760px;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(7, 16, 15, 0.75);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .nav {
+      min-height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      font-weight: 800;
+      font-size: 1.02rem;
+      color: #fff;
+    }
+
+    .brand span {
+      display: block;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      flex-wrap: wrap;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .nav-links a:hover {
+      color: #fff;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 22px;
+      border-radius: 999px;
+      font-weight: 700;
+      transition: 0.3s ease;
+      border: 1px solid transparent;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), var(--primary-2));
+      color: #0a0d0c;
+      box-shadow: 0 12px 35px rgba(214,166,90,0.28);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 18px 42px rgba(214,166,90,0.34);
+    }
+
+    .btn-secondary {
+      color: #fff;
+      border-color: rgba(255,255,255,0.16);
+      background: rgba(255,255,255,0.03);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255,255,255,0.08);
+      transform: translateY(-2px);
+    }
+
+    .hero {
+      padding: 92px 0 72px;
+      position: relative;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .hero-copy {
+      position: relative;
+    }
+
+    .hero-copy .lead {
+      margin-top: 24px;
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 32px;
+    }
+
+    .glass {
+      background: linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.04));
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(16px);
+    }
+
+    .hero-panel {
+      padding: 30px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-panel::after {
+      content: "";
+      position: absolute;
+      inset: auto -60px -60px auto;
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(214,166,90,0.3), transparent 70%);
+      filter: blur(16px);
+    }
+
+    .hero-panel h3 {
+      margin-bottom: 16px;
+      color: #fff;
+    }
+
+    .hero-panel ul {
+      margin: 0;
+      padding-left: 18px;
+      color: var(--muted);
+    }
+
+    .hero-panel li {
+      margin-bottom: 12px;
+    }
+
+    .credibility {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 24px;
+    }
+
+    .credibility .pill {
+      padding: 16px 18px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: #dce7e2;
+      font-size: 0.92rem;
+    }
+
+    .section-head {
+      margin-bottom: 34px;
+    }
+
+    .grid-2,
+    .grid-3,
+    .grid-4 {
+      display: grid;
+      gap: 22px;
+    }
+
+    .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .grid-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+
+    .card {
+      padding: 28px;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.35s ease, border-color 0.35s ease, background 0.35s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(214,166,90,0.28);
+      background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.05));
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto auto 0;
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(90deg, rgba(214,166,90,0.65), transparent 60%);
+      opacity: 0.5;
+    }
+
+    .list {
+      padding-left: 18px;
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .list li {
+      margin-bottom: 10px;
+    }
+
+    .stat-line {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .stat {
+      padding: 12px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.04);
+      color: #dfeae5;
+      font-size: 0.92rem;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 18px;
+    }
+
+    .step {
+      display: grid;
+      grid-template-columns: 68px 1fr;
+      gap: 18px;
+      align-items: start;
+      padding: 22px;
+      border-radius: 20px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.04);
+      box-shadow: var(--shadow);
+      transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+
+    .step:hover {
+      transform: translateY(-4px);
+      border-color: rgba(214,166,90,0.24);
+    }
+
+    .step-number {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-weight: 800;
+      color: #101312;
+      background: linear-gradient(135deg, var(--primary), var(--primary-2));
+      box-shadow: 0 10px 24px rgba(214,166,90,0.25);
+    }
+
+    .quote {
+      padding: 28px;
+      font-style: italic;
+      color: #eef3f1;
+      min-height: 100%;
+    }
+
+    .quote span {
+      display: block;
+      font-style: normal;
+      margin-top: 18px;
+      color: var(--primary);
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .faq-item summary {
+      list-style: none;
+      cursor: pointer;
+      font-weight: 700;
+      color: #fff;
+      position: relative;
+      padding-right: 28px;
+    }
+
+    .faq-item summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .faq-item summary::after {
+      content: "+";
+      position: absolute;
+      right: 0;
+      top: 0;
+      color: var(--primary);
+      font-size: 1.3rem;
+      line-height: 1;
+    }
+
+    .faq-item[open] summary::after {
+      content: "–";
+    }
+
+    .faq-item p {
+      margin-top: 14px;
+      margin-bottom: 0;
+    }
+
+    .cta {
+      padding: 40px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta::before,
+    .cta::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(24px);
+      pointer-events: none;
+    }
+
+    .cta::before {
+      width: 220px;
+      height: 220px;
+      right: -40px;
+      top: -40px;
+      background: rgba(214,166,90,0.22);
+    }
+
+    .cta::after {
+      width: 180px;
+      height: 180px;
+      left: -30px;
+      bottom: -40px;
+      background: rgba(44,98,83,0.24);
+    }
+
+    .cta-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 24px;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .contact-box {
+      padding: 24px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.09);
+    }
+
+    .contact-box strong {
+      display: block;
+      margin-bottom: 10px;
+      font-size: 1.05rem;
+      color: #fff;
+    }
+
+    footer {
+      padding: 30px 0 42px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(26px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .cta-grid,
+      .grid-4,
+      .grid-3,
+      .grid-2 {
+        grid-template-columns: 1fr;
+      }
+
+      .nav {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 14px 0;
+      }
+
+      .credibility {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .section {
+        padding: 72px 0;
+      }
+
+      .hero {
+        padding-top: 70px;
+      }
+
+      .btn-group {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .card,
+      .hero-panel,
+      .cta,
+      .contact-box {
+        padding: 22px;
+      }
+
+      .step {
+        grid-template-columns: 52px 1fr;
+        padding: 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container nav">
+      <a href="#home" class="brand">
+        Arvind Nachaya
+        <span>Executive Coach</span>
+      </a>
+
+      <nav class="nav-links">
+        <a href="#who">Who I Work With</a>
+        <a href="#focus">Focus Areas</a>
+        <a href="#approach">Approach</a>
+        <a href="#about">About</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact" class="btn btn-primary" style="padding: 10px 18px;">Book a Discovery Conversation</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div class="hero-copy reveal">
+          <div class="eyebrow">Executive Coaching for Modern Leadership</div>
+          <h1>Executive Coaching for Leaders Navigating Growth, Transition, and Complexity</h1>
+          <p class="lead">
+            I work with senior leaders, founders, and emerging executives to strengthen
+            strategic thinking, executive presence, team leadership, and resilience, so
+            they can lead with greater clarity, confidence, and lasting impact.
+          </p>
+          <p>
+            In today’s demanding business environment, leadership calls for more than
+            experience or technical skill. It requires perspective, self-awareness,
+            adaptability, and the ability to think clearly under pressure.
+          </p>
+
+          <div class="btn-group">
+            <a href="#contact" class="btn btn-primary">Book a Discovery Conversation</a>
+            <a href="#approach" class="btn btn-secondary">Explore My Coaching Approach</a>
+          </div>
+
+          <div class="credibility">
+            <div class="pill">PCC, International Coaching Federation</div>
+            <div class="pill">Former Banking & Business Leader</div>
+            <div class="pill">Coaching leaders across industries and geographies</div>
+          </div>
+        </div>
+
+        <div class="hero-panel glass reveal">
+          <h3>What leaders often seek through coaching</h3>
+          <ul>
+            <li>Sharper strategic thinking and stronger decisions</li>
+            <li>Greater confidence in uncertainty and change</li>
+            <li>More aligned, accountable, high-performing teams</li>
+            <li>Stronger executive presence and influence</li>
+            <li>Greater resilience under pressure</li>
+            <li>Clearer alignment between values and action</li>
+          </ul>
+
+          <div class="stat-line">
+            <div class="stat">Senior Leaders</div>
+            <div class="stat">Founders</div>
+            <div class="stat">Emerging Executives</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="who">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="eyebrow">Who I Work With</div>
+          <h2>Trusted coaching for leaders operating in high-stakes environments</h2>
+          <p class="lead">
+            My clients are often navigating complexity, pressure, growth, transition,
+            and the evolving demands of leadership.
+          </p>
+        </div>
+
+        <div class="grid-2">
+          <div class="card glass reveal">
+            <h3>My clients typically include</h3>
+            <ul class="list">
+              <li>Senior executives and business heads in large corporations</li>
+              <li>Founders and entrepreneurs</li>
+              <li>Directors and functional leaders</li>
+              <li>Mid-level leaders preparing for broader responsibility</li>
+              <li>Professionals in transition seeking greater purpose and effectiveness</li>
+            </ul>
+          </div>
+
+          <div class="card glass reveal">
+            <h3>Range and depth of my coaching work</h3>
+            <p>
+              My practice spans industries and geographies, supporting leaders from
+              mid-management through to the C-suite.
+            </p>
+            <p>
+              A significant portion of my work has been with Managing Directors,
+              Directors, and Business Unit Heads.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="challenges">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="eyebrow">What Leaders Bring to Coaching</div>
+          <h2>Leadership challenges are rarely about capability alone</h2>
+          <p class="lead">
+            More often, leaders seek coaching because their context has become more
+            complex, more visible, and more consequential.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <div class="card glass reveal"><h3>Strategic clarity</h3><p>Thinking more expansively, prioritizing better, and making stronger decisions.</p></div>
+          <div class="card glass reveal"><h3>Confidence in uncertainty</h3><p>Leading with composure when the path ahead is not straightforward.</p></div>
+          <div class="card glass reveal"><h3>Team excellence</h3><p>Creating stronger alignment, accountability, and trust across teams.</p></div>
+          <div class="card glass reveal"><h3>Leadership transitions</h3><p>Stepping into broader or more senior roles with confidence and maturity.</p></div>
+          <div class="card glass reveal"><h3>Executive presence</h3><p>Showing up with greater credibility, authority, and authenticity.</p></div>
+          <div class="card glass reveal"><h3>Resilience and alignment</h3><p>Responding to pressure while staying grounded in values and purpose.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="focus">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="eyebrow">Coaching Focus</div>
+          <h2>Five core capabilities for effective, sustainable leadership</h2>
+          <p class="lead">
+            My work is anchored in the capabilities leaders need to think clearly,
+            lead people well, and grow with intention over time.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <div class="card glass reveal">
+            <h3>Strategic Thinking</h3>
+            <p>Develop the ability to step back, see the bigger picture, challenge assumptions, and make thoughtful decisions.</p>
+          </div>
+          <div class="card glass reveal">
+            <h3>Team Excellence</h3>
+            <p>Build aligned, high-performing teams grounded in trust, accountability, and shared purpose.</p>
+          </div>
+          <div class="card glass reveal">
+            <h3>Purpose-Driven Leadership</h3>
+            <p>Connect vision, values, and purpose more deeply to everyday leadership choices.</p>
+          </div>
+          <div class="card glass reveal">
+            <h3>Executive Presence</h3>
+            <p>Strengthen influence, communication, credibility, and relationship-building.</p>
+          </div>
+          <div class="card glass reveal">
+            <h3>Emotional Resilience</h3>
+            <p>Navigate pressure, setbacks, ambiguity, and change with steadiness and maturity.</p>
+          </div>
+          <div class="card glass reveal">
+            <h3>Enduring Growth</h3>
+            <p>Build leadership capabilities that continue to serve you long after coaching ends.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="philosophy">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="eyebrow">My Coaching Philosophy</div>
+          <h2>Meaningful development comes from expanded awareness and deeper perspective</h2>
+        </div>
+
+        <div class="grid-2">
+          <div class="card glass reveal">
+            <p>
+              I believe every individual has the capacity for meaningful growth.
+              Leadership development is not simply about acquiring new techniques.
+              It is about expanding awareness, deepening perspective, and building
+              the inner capability to lead more consciously and effectively.
+            </p>
+            <p>
+              My role is to create a thoughtful, safe, and appropriately challenging
+              space where leaders can reflect openly, examine patterns, and uncover
+              new possibilities for action.
+            </p>
+          </div>
+
+          <div class="card glass reveal">
+            <h3>Through this process, clients are able to:</h3>
+            <ul class="list">
+              <li>Gain clarity on complex challenges</li>
+              <li>Recognize patterns limiting their leadership</li>
+              <li>Make stronger, more grounded decisions</li>
+              <li>Create practical pathways toward meaningful goals</li>
+              <li>Build the confidence and courage needed for sustained change</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="approach">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="eyebrow">How I Work</div>
+          <h2>A structured coaching process tailored to the individual</h2>
+          <p class="lead">
+            Each coaching engagement is shaped by the client, their context, and the
+            outcomes that matter most.
+          </p>
+        </div>
+
+        <div class="timeline">
+          <div class="step reveal">
+            <div class="step-number">1</div>
+            <div>
+              <h3>Discovery</h3>
+              <p>We begin by understanding your context, challenges, aspirations, and what meaningful progress would look like.</p>
+            </div>
+          </div>
+          <div class="step reveal">
+            <div class="step-number">2</div>
+            <div>
+              <h3>Reflection and Assessment</h3>
+              <p>We explore strengths, patterns, blind spots, and the internal and external factors shaping your leadership.</p>
+            </div>
+          </div>
+          <div class="step reveal">
+            <div class="step-number">3</div>
+            <div>
+              <h3>Goal Alignment</h3>
+              <p>Together, we define clear priorities and outcomes that matter to your role, your team, and your growth.</p>
+            </div>
+          </div>
+          <div class="step reveal">
+            <div class="step-number">4</div>
+            <div>
+              <h3>Coaching Conversations</h3>
+              <p>Through focused one-to-one sessions, we work on building insight, confidence, perspective, and practical movement.</p>
+            </div>
+          </div>
+          <div class="step reveal">
+            <div class="step-number">5</div>
+            <div>
+              <h3>Integration and Action</h3>
+              <p>Insight creates value when it becomes action. I support clients in turning reflection into meaningful behavioral change.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="why">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="eyebrow">Why Clients Choose to Work With Me</div>
+          <h2>Professional coaching expertise shaped by lived leadership experience</h2>
+        </div>
+
+        <div class="grid-2">
+          <div class="card glass reveal">
+            <p>
+              With over two decades as a banking executive and several years dedicated
+              to executive coaching, I understand leadership not only as a concept,
+              but as a lived responsibility.
+            </p>
+            <p>
+              I have led large and diverse teams, managed growth mandates, worked within
+              complex institutions, and experienced firsthand the demands leaders face
+              when performance, people, and pressure converge.
+            </p>
+          </div>
+
+          <div class="card glass reveal">
+            <h3>Clients value working with me because I bring</h3>
+            <ul class="list">
+              <li>Real-world leadership experience</li>
+              <li>Deep coaching presence and listening</li>
+              <li>Strategic and commercial understanding</li>
+              <li>Sensitivity to the emotional dimension of leadership</li>
+              <li>A balanced approach that is both reflective and practical</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="eyebrow">About Arvind</div>
+          <h2>Executive coach, investor, and former business leader</h2>
+        </div>
+
+        <div class="grid-2">
+          <div class="card glass reveal">
+            <p>
+              I am the Founder of Solutions at Source Consulting, where I support leaders
+              in thriving within today’s complex business landscape through evidence-based
+              coaching frameworks.
+            </p>
+            <p>
+              Before focusing deeply on coaching, I spent more than two decades in
+              leadership roles across India’s commercial banking sector, including
+              senior positions at HSBC, Citi, and ICICI Bank.
+            </p>
+            <p>
+              Today, I bring that experience into my coaching work, helping leaders grow
+              not only in performance, but also in clarity, presence, resilience, and impact.
+            </p>
+          </div>
+
+          <div class="card glass reveal">
+            <h3>Credentials & leadership experience</h3>
+            <ul class="list">
+              <li>Professional Certified Coach (PCC) – International Coaching Federation</li>
+              <li>Professional Transformative Coach – CMA Singapore</li>
+              <li>Member, ICF Bangalore Chapter</li>
+              <li>Investor in the Indian startup ecosystem and venture debt fund</li>
+              <li>Investor and Head of Business – Stride Fintree Pvt Ltd</li>
+              <li>External Risk Committee Member – Stride Fintree Pvt Ltd</li>
+              <li>Director & Business Head, SME – HSBC Bank</li>
+              <li>Director roles at Citi Bank</li>
+              <li>Group Cluster Head, SME – ICICI Bank</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="industries">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="eyebrow">Industries & Client Profile</div>
+          <h2>Leaders across sectors, markets, and organizational contexts</h2>
+        </div>
+
+        <div class="grid-2">
+          <div class="card glass reveal">
+            <p>
+              My coaching work has spanned manufacturing, software, consulting, finance,
+              utilities, media, education, startups, retail, and real estate.
+            </p>
+            <p>
+              Having coached leaders across all continents, I bring a strong understanding
+              of cultural nuance, varied work dynamics, and the leadership realities that
+              emerge across markets and organizations.
+            </p>
+          </div>
+
+          <div class="card glass reveal">
+            <h3>This breadth helps me support leaders in</h3>
+            <ul class="list">
+              <li>Thinking clearly in complex environments</li>
+              <li>Leading people well across different contexts</li>
+              <li>Navigating uncertainty with maturity</li>
+              <li>Delivering results without losing perspective</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="results">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="eyebrow">What Clients Gain</div>
+          <h2>Meaningful shifts in how leaders think, lead, and show up</h2>
+        </div>
+
+        <div class="grid-4">
+          <div class="card glass reveal"><h3>Strategic clarity</h3></div>
+          <div class="card glass reveal"><h3>Decision confidence</h3></div>
+          <div class="card glass reveal"><h3>Leadership presence</h3></div>
+          <div class="card glass reveal"><h3>Stakeholder relationships</h3></div>
+          <div class="card glass reveal"><h3>Team effectiveness</h3></div>
+          <div class="card glass reveal"><h3>Self-awareness</h3></div>
+          <div class="card glass reveal"><h3>Values alignment</h3></div>
+          <div class="card glass reveal"><h3>Resilience under pressure</h3></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="testimonials">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="eyebrow">Testimonials</div>
+          <h2>What clients say</h2>
+        </div>
+
+        <div class="grid-3">
+          <div class="quote glass reveal">
+            “Arvind brings a rare combination of business wisdom, calm presence, and the ability to ask exactly the right question at the right time.”
+            <span>Client Perspective</span>
+          </div>
+          <div class="quote glass reveal">
+            “Our work together helped me think more clearly, lead with more confidence, and navigate a critical transition with far greater effectiveness.”
+            <span>Client Perspective</span>
+          </div>
+          <div class="quote glass reveal">
+            “He combines executive insight with genuine coaching depth, making every conversation both practical and transformative.”
+            <span>Client Perspective</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="faq">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="eyebrow">FAQ</div>
+          <h2>Frequently asked questions</h2>
+        </div>
+
+        <div class="grid-2">
+          <details class="card glass faq-item reveal" open>
+            <summary>Who is your coaching best suited for?</summary>
+            <p>My coaching is best suited for senior leaders, founders, business heads, and emerging leaders who want to grow in effectiveness, clarity, and leadership impact.</p>
+          </details>
+
+          <details class="card glass faq-item reveal">
+            <summary>What kinds of issues can coaching help with?</summary>
+            <p>Coaching can support strategic thinking, leadership transitions, executive presence, team effectiveness, resilience, confidence, and greater alignment between purpose and action.</p>
+          </details>
+
+          <details class="card glass faq-item reveal">
+            <summary>Do you work only with senior executives?</summary>
+            <p>No. While much of my work is with senior leaders, I also work with mid-level leaders preparing for broader responsibility and greater influence.</p>
+          </details>
+
+          <details class="card glass faq-item reveal">
+            <summary>Is coaching virtual or in person?</summary>
+            <p>Engagements can be conducted virtually, and in-person sessions may also be possible depending on context and location.</p>
+          </details>
+
+          <details class="card glass faq-item reveal">
+            <summary>How long does a coaching engagement usually last?</summary>
+            <p>The duration depends on the client’s goals and context. Some engagements are focused and short-term, while others support broader leadership development over a longer period.</p>
+          </details>
+
+          <details class="card glass faq-item reveal">
+            <summary>How is coaching different from mentoring or consulting?</summary>
+            <p>Coaching is not about giving ready-made answers. It is a process of helping clients think more deeply, access their own clarity, and move forward with greater awareness and intention.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="cta glass reveal">
+          <div class="cta-grid">
+            <div>
+              <div class="eyebrow">Begin the Conversation</div>
+              <h2>Lead with greater perspective, confidence, and purpose</h2>
+              <p class="lead">
+                Leadership can be demanding, especially when the stakes are high and the
+                path ahead is not always clear. A thoughtful coaching partnership can help
+                you move forward with greater clarity and intention.
+              </p>
+
+              <div class="btn-group">
+                <a href="mailto:arvind@solutionsatsource.in" class="btn btn-primary">Schedule a Discovery Conversation</a>
+                <a href="#" class="btn btn-secondary">View LinkedIn</a>
+              </div>
+            </div>
+
+            <div class="contact-box">
+              <strong>Arvind Nachaya</strong>
+              <p>Founder, Solutions at Source Consulting</p>
+              <p><a href="mailto:arvind@solutionsatsource.in">arvind@solutionsatsource.in</a></p>
+              <p><a href="tel:+919930407361">+91 9930407361</a></p>
+              <p><a href="#">LinkedIn: Arvind Nachaya</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      © 2026 Arvind Nachaya. All rights reserved.
+    </div>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+  </script>
+</body>
+</html>
