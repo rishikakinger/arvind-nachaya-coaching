@@ -150,23 +150,34 @@ p {
   position: sticky;
   top: 0;
   z-index: 50;
-  background: rgba(13, 12, 10, 0.86);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--line);
-  transition: background 0.3s ease, border-color 0.3s ease;
+  background: transparent;
+  padding-top: 18px;
+  transition: padding-top 0.3s ease;
 }
 
 .topbar.scrolled {
-  background: rgba(10, 9, 8, 0.96);
-  border-color: var(--line-strong);
+  padding-top: 10px;
 }
 
 .nav {
-  min-height: 78px;
+  min-height: 64px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 24px;
+  background: rgba(24, 20, 15, 0.82);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+  padding: 8px 10px 8px 26px;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.3);
+  transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.topbar.scrolled .nav {
+  background: rgba(20, 17, 12, 0.94);
+  border-color: var(--line-strong);
+  box-shadow: 0 22px 46px rgba(0, 0, 0, 0.4);
 }
 
 .brand {
@@ -200,8 +211,34 @@ p {
   color: #fff;
 }
 
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: 10px;
+}
+
 .nav-links .btn-primary {
+  padding: 10px 20px;
+  border-radius: 999px;
+}
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   padding: 10px 18px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--stone);
+  font-weight: 600;
+  font-size: 0.92rem;
+  transition: background 0.25s ease, color 0.25s ease;
+}
+
+.btn-ghost:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
 }
 
 .nav-toggle {
@@ -373,26 +410,40 @@ p {
 }
 
 .credibility-strip {
-  display: flex;
-  flex-wrap: wrap;
   margin-top: 40px;
   padding-top: 22px;
   border-top: 1px solid var(--line);
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+}
+
+.credibility-track {
+  display: flex;
+  width: max-content;
+  animation: credibility-marquee 26s linear infinite;
+}
+
+.credibility-strip:hover .credibility-track {
+  animation-play-state: paused;
 }
 
 .credibility-item {
-  padding: 2px 28px 2px 0;
-  margin-right: 28px;
+  padding: 2px 28px;
   border-right: 1px solid var(--line);
   font-size: 0.86rem;
   color: var(--stone);
-  max-width: 260px;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
-.credibility-item:last-child {
-  border-right: none;
-  margin-right: 0;
-  padding-right: 0;
+@keyframes credibility-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
 }
 
 .section-head {
@@ -1007,7 +1058,8 @@ footer {
   }
 
   .nav {
-    padding: 14px 0;
+    padding: 10px 12px 10px 22px;
+    border-radius: 28px;
   }
 
   .nav-toggle {
@@ -1027,24 +1079,16 @@ footer {
     display: flex;
   }
 
-  .nav-links a.btn {
-    width: 100%;
-  }
-
-  .credibility-strip {
+  .nav-actions {
     flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    margin-left: 0;
   }
 
-  .credibility-item {
-    border-right: none;
-    border-bottom: 1px solid var(--line);
-    padding: 10px 0;
-    margin-right: 0;
-    max-width: none;
-  }
-
-  .credibility-item:last-child {
-    border-bottom: none;
+  .nav-actions .btn,
+  .nav-actions .btn-ghost {
+    width: 100%;
   }
 
   .form-row {
@@ -1098,7 +1142,8 @@ footer {
   .step,
   .btn,
   .faq-answer,
-  .faq-icon {
+  .faq-icon,
+  .credibility-track {
     transition: none !important;
     animation: none !important;
   }

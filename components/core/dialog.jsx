@@ -1,6 +1,7 @@
 "use client";
 
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import { AnimatePresence, motion } from "motion/react";
 import { cn } from "@/lib/utils";
 
@@ -55,8 +56,19 @@ export function DialogTrigger({ children, className, ...props }) {
 
 export function DialogContent({ children, className }) {
   const { open, setOpen, variants, transition } = useDialogContext();
+  const [mounted, setMounted] = useState(false);
 
-  return (
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  // Rendered via portal directly under <body> so this dialog's
+  // position:fixed isn't hijacked by an ancestor with backdrop-filter
+  // (e.g. the sticky nav) — such ancestors create their own containing
+  // block for fixed descendants, which breaks true viewport centering.
+  if (!mounted) return null;
+
+  return createPortal(
     <AnimatePresence>
       {open && (
         <>
@@ -82,7 +94,8 @@ export function DialogContent({ children, className }) {
           </div>
         </>
       )}
-    </AnimatePresence>
+    </AnimatePresence>,
+    document.body
   );
 }
 

@@ -7,6 +7,12 @@ import { BlogCard } from "@/components/BlogCard";
 import { AnimatedGroup } from "@/components/core/animated-group";
 import { getAllPosts } from "@/lib/posts";
 
+const CREDIBILITY_ITEMS = [
+  "PCC, International Coaching Federation",
+  "Former Banking & Business Leader",
+  "Coaching leaders across industries and geographies",
+];
+
 export default function HomePage() {
   const latestPosts = getAllPosts().slice(0, 3);
 
@@ -70,10 +76,12 @@ export default function HomePage() {
             </div>
 
             <div className="credibility-strip">
-              <div className="credibility-item">PCC, International Coaching Federation</div>
-              <div className="credibility-item">Former Banking &amp; Business Leader</div>
-              <div className="credibility-item">
-                Coaching leaders across industries and geographies
+              <div className="credibility-track">
+                {[...CREDIBILITY_ITEMS, ...CREDIBILITY_ITEMS].map((item, i) => (
+                  <div className="credibility-item" key={i} aria-hidden={i >= CREDIBILITY_ITEMS.length}>
+                    {item}
+                  </div>
+                ))}
               </div>
             </div>
           </Reveal>
