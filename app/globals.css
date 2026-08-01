@@ -1176,23 +1176,42 @@ footer {
   .nav {
     padding: 10px 12px 10px 22px;
     border-radius: 28px;
+    flex-wrap: wrap;
+    gap: 0;
   }
 
   .nav-toggle {
     display: flex;
   }
 
+  /* Kept in the layout (not display:none) so it can animate open/closed */
   .nav-links {
-    display: none;
+    display: flex;
     width: 100%;
     flex-direction: column;
     align-items: flex-start;
-    gap: 16px;
-    padding-bottom: 18px;
+    gap: 14px;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    pointer-events: none;
+    padding-top: 0;
+    margin-top: 0;
+    transform: translateY(-6px);
+    transition: max-height 0.42s cubic-bezier(0.4, 0, 0.2, 1),
+      opacity 0.28s ease, transform 0.42s cubic-bezier(0.4, 0, 0.2, 1),
+      padding-top 0.42s ease, margin-top 0.42s ease;
   }
 
   .nav-links.open {
-    display: flex;
+    max-height: 70vh;
+    opacity: 1;
+    pointer-events: auto;
+    padding-top: 16px;
+    padding-bottom: 6px;
+    margin-top: 14px;
+    border-top: 1px solid var(--line);
+    transform: translateY(0);
   }
 
   .nav-actions {
@@ -1263,7 +1282,8 @@ footer {
   .credibility-track,
   .hero-h1,
   .hero-scroll-cue,
-  .hero-scroll-cue-line {
+  .hero-scroll-cue-line,
+  .nav-links {
     transition: none !important;
     animation: none !important;
   }
