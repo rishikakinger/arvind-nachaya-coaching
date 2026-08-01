@@ -1,4 +1,5 @@
 import { Reveal } from "@/components/Reveal";
+import { HeroSplash } from "@/components/HeroSplash";
 import { PullQuote } from "@/components/PullQuote";
 import { FaqAccordion } from "@/components/FaqAccordion";
 import { ContactForm } from "@/components/ContactForm";
@@ -13,41 +14,45 @@ const CREDIBILITY_ITEMS = [
   "Coaching leaders across industries and geographies",
 ];
 
+const SEEKING_ITEMS = [
+  "Sharper strategic thinking and stronger decisions",
+  "Greater confidence in uncertainty and change",
+  "More aligned, accountable, high-performing teams",
+  "Stronger executive presence and influence",
+  "Greater resilience under pressure",
+  "Clearer alignment between values and action",
+];
+
 export default function HomePage() {
   const latestPosts = getAllPosts().slice(0, 3);
 
   return (
     <>
-      <section className="hero section" id="home">
+      <HeroSplash />
+
+      <section className="section hero-intro" id="intro">
         <div className="container">
-          <div className="hero-top">
-            <Reveal className="hero-heading">
-              <div className="eyebrow">Executive Coaching for Modern Leadership</div>
-              <h1>
-                Executive Coaching for Leaders Navigating Growth, Transition, and
-                Complexity
-              </h1>
-            </Reveal>
+          <Reveal className="section-head">
+            <div className="eyebrow">What Leaders Often Seek</div>
+            <h2>Through coaching, leaders gain</h2>
+          </Reveal>
 
-            <Reveal className="hero-panel">
-              <h3>What leaders often seek through coaching</h3>
-              <ul>
-                <li>Sharper strategic thinking and stronger decisions</li>
-                <li>Greater confidence in uncertainty and change</li>
-                <li>More aligned, accountable, high-performing teams</li>
-                <li>Stronger executive presence and influence</li>
-                <li>Greater resilience under pressure</li>
-                <li>Clearer alignment between values and action</li>
-              </ul>
-              <div className="stat-line">
-                <div className="stat">Senior Leaders</div>
-                <div className="stat">Founders</div>
-                <div className="stat">Emerging Executives</div>
+          <AnimatedGroup className="why-chip-grid">
+            {SEEKING_ITEMS.map((item) => (
+              <div className="why-chip" key={item}>
+                <span className="why-chip-icon">✓</span>
+                <span>{item}</span>
               </div>
-            </Reveal>
-          </div>
+            ))}
+          </AnimatedGroup>
 
-          <Reveal className="hero-bottom">
+          <Reveal className="hero-audience-tags">
+            <span className="stat">Senior Leaders</span>
+            <span className="stat">Founders</span>
+            <span className="stat">Emerging Executives</span>
+          </Reveal>
+
+          <Reveal className="hero-intro-copy">
             <p className="lead">
               I work with senior leaders, founders, and emerging executives to
               strengthen strategic thinking, executive presence, team leadership,
@@ -72,17 +77,17 @@ export default function HomePage() {
                 Explore My Coaching Approach
               </a>
             </div>
-
-            <div className="credibility-strip">
-              <div className="credibility-track">
-                {[...CREDIBILITY_ITEMS, ...CREDIBILITY_ITEMS].map((item, i) => (
-                  <div className="credibility-item" key={i} aria-hidden={i >= CREDIBILITY_ITEMS.length}>
-                    {item}
-                  </div>
-                ))}
-              </div>
-            </div>
           </Reveal>
+
+          <div className="credibility-strip">
+            <div className="credibility-track">
+              {[...CREDIBILITY_ITEMS, ...CREDIBILITY_ITEMS].map((item, i) => (
+                <div className="credibility-item" key={i} aria-hidden={i >= CREDIBILITY_ITEMS.length}>
+                  {item}
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
@@ -165,28 +170,23 @@ export default function HomePage() {
             </p>
           </Reveal>
 
-          <AnimatedGroup className="grid-3">
-            <div className="card glass">
-              <h3>Strategic Thinking</h3>
-              <p>Strengthening the ability to step back, see the bigger picture, challenge assumptions, and approach problems with greater clarity and creativity.</p>
-            </div>
-            <div className="card glass">
-              <h3>Team Excellence</h3>
-              <p>Helping leaders build aligned, high-performing teams rooted in trust, accountability, and shared purpose.</p>
-            </div>
-            <div className="card glass">
-              <h3>Purpose-Driven Leadership</h3>
-              <p>Supporting leaders in connecting vision, purpose, and values with their everyday decisions and actions.</p>
-            </div>
-            <div className="card glass">
-              <h3>Executive Presence</h3>
-              <p>Developing credibility, influence, communication, and relationship-building so leaders can lead with both authority and authenticity.</p>
-            </div>
-            <div className="card glass">
-              <h3>Emotional Resilience</h3>
-              <p>Building the inner steadiness needed to handle ambiguity, pressure, setbacks, and change with maturity and composure.</p>
-            </div>
-          </AnimatedGroup>
+          <div className="timeline">
+            {[
+              ["01", "Strategic Thinking", "Strengthening the ability to step back, see the bigger picture, challenge assumptions, and approach problems with greater clarity and creativity."],
+              ["02", "Team Excellence", "Helping leaders build aligned, high-performing teams rooted in trust, accountability, and shared purpose."],
+              ["03", "Purpose-Driven Leadership", "Supporting leaders in connecting vision, purpose, and values with their everyday decisions and actions."],
+              ["04", "Executive Presence", "Developing credibility, influence, communication, and relationship-building so leaders can lead with both authority and authenticity."],
+              ["05", "Emotional Resilience", "Building the inner steadiness needed to handle ambiguity, pressure, setbacks, and change with maturity and composure."],
+            ].map(([num, title, body]) => (
+              <Reveal key={num} className="step">
+                <div className="step-number">{num}</div>
+                <div>
+                  <h3>{title}</h3>
+                  <p>{body}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -273,7 +273,13 @@ export default function HomePage() {
             <h2>Professional coaching expertise shaped by lived leadership experience</h2>
           </Reveal>
 
-          <AnimatedGroup className="grid-2">
+          <AnimatedGroup className="why-layout">
+            <div className="card glass why-stat">
+              <span className="why-stat-number">20+</span>
+              <span className="why-stat-label">
+                Years across banking leadership and executive coaching
+              </span>
+            </div>
             <div className="card glass">
               <p>
                 What I bring to coaching is a blend of professional coaching
@@ -288,17 +294,23 @@ export default function HomePage() {
                 face when performance, people, and expectations all converge.
               </p>
             </div>
-            <div className="card glass">
-              <h3>Clients value working with me because I bring</h3>
-              <ul className="list">
-                <li>Real-world leadership experience</li>
-                <li>Deep coaching presence and listening</li>
-                <li>Strategic and commercial understanding</li>
-                <li>Sensitivity to the emotional side of leadership</li>
-                <li>A balanced approach that is both reflective and practical</li>
-                <li>Global coaching experience</li>
-              </ul>
-            </div>
+          </AnimatedGroup>
+
+          <p className="why-chip-lead">Clients value working with me because I bring</p>
+          <AnimatedGroup className="why-chip-grid">
+            {[
+              "Real-world leadership experience",
+              "Deep coaching presence and listening",
+              "Strategic and commercial understanding",
+              "Sensitivity to the emotional side of leadership",
+              "A balanced approach that is both reflective and practical",
+              "Global coaching experience",
+            ].map((item) => (
+              <div className="why-chip" key={item}>
+                <span className="why-chip-icon">✓</span>
+                <span>{item}</span>
+              </div>
+            ))}
           </AnimatedGroup>
         </div>
       </section>
