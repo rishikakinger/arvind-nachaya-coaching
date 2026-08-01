@@ -14,15 +14,6 @@ const CREDIBILITY_ITEMS = [
   "Coaching leaders across industries and geographies",
 ];
 
-const SEEKING_ITEMS = [
-  "Sharper strategic thinking and stronger decisions",
-  "Greater confidence in uncertainty and change",
-  "More aligned, accountable, high-performing teams",
-  "Stronger executive presence and influence",
-  "Greater resilience under pressure",
-  "Clearer alignment between values and action",
-];
-
 export default function HomePage() {
   const latestPosts = getAllPosts().slice(0, 3);
 
@@ -32,26 +23,6 @@ export default function HomePage() {
 
       <section className="section hero-intro" id="intro">
         <div className="container">
-          <Reveal className="section-head">
-            <div className="eyebrow">What Leaders Often Seek</div>
-            <h2>Through coaching, leaders gain</h2>
-          </Reveal>
-
-          <AnimatedGroup className="why-chip-grid">
-            {SEEKING_ITEMS.map((item) => (
-              <div className="why-chip" key={item}>
-                <span className="why-chip-icon">✓</span>
-                <span>{item}</span>
-              </div>
-            ))}
-          </AnimatedGroup>
-
-          <Reveal className="hero-audience-tags">
-            <span className="stat">Senior Leaders</span>
-            <span className="stat">Founders</span>
-            <span className="stat">Emerging Executives</span>
-          </Reveal>
-
           <Reveal className="hero-intro-copy">
             <p className="lead">
               I work with senior leaders, founders, and emerging executives to
@@ -59,15 +30,15 @@ export default function HomePage() {
               and resilience, helping them lead with greater clarity, confidence,
               and lasting impact.
             </p>
-            <blockquote className="hero-aside">
+            <p className="hero-intro-body">
               In today&apos;s demanding business environment, leadership calls for
               far more than experience or technical expertise. It requires
               perspective, self-awareness, adaptability, and the ability to stay
               clear-headed under pressure. My coaching helps leaders develop these
               qualities so they lead with greater presence and purpose, stay
-              aligned with their values, and grow confident in their decision
-              making.
-            </blockquote>
+              aligned with their values. This clarity allows them to be confident
+              in their decision-making process.
+            </p>
 
             <div className="btn-group">
               <BookingDialog triggerClassName="btn btn-primary">
@@ -145,16 +116,22 @@ export default function HomePage() {
             </p>
           </Reveal>
 
-          <AnimatedGroup className="grid-3">
-            <div className="card glass"><h3>Bigger-picture thinking</h3><p>Thinking more strategically and gaining clarity while making decisions.</p></div>
-            <div className="card glass"><h3>Steady under change</h3><p>Leading with greater confidence during uncertainty.</p></div>
-            <div className="card glass"><h3>Stronger teams</h3><p>Building stronger, more accountable teams.</p></div>
-            <div className="card glass"><h3>Stepping into bigger roles</h3><p>Navigating transitions into broader or more senior roles.</p></div>
-            <div className="card glass"><h3>Staying grounded</h3><p>Developing resilience in high-pressure environments.</p></div>
-            <div className="card glass"><h3>Navigating hard calls</h3><p>Gaining clarity on difficult people, business, or career decisions.</p></div>
-            <div className="card glass"><h3>Showing up as a leader</h3><p>Strengthening executive presence and influence.</p></div>
-            <div className="card glass"><h3>Living your values at work</h3><p>Aligning personal values with professional leadership.</p></div>
-            <div className="card glass"><h3>Unlearning what holds you back</h3><p>Breaking patterns that may be limiting growth or effectiveness.</p></div>
+          <AnimatedGroup className="theme-grid">
+            {[
+              "Thinking more strategically and gaining clarity while making decisions",
+              "Leading with greater confidence during uncertainty",
+              "Building stronger, more accountable teams",
+              "Navigating transitions into broader or more senior roles",
+              "Developing resilience in high-pressure environments",
+              "Gaining clarity on difficult people, business, or career decisions",
+              "Strengthening executive presence and influence",
+              "Aligning personal values with professional leadership",
+              "Breaking patterns that may be limiting growth or effectiveness",
+            ].map((item) => (
+              <div className="theme-item" key={item}>
+                {item}
+              </div>
+            ))}
           </AnimatedGroup>
         </div>
       </section>
@@ -273,28 +250,20 @@ export default function HomePage() {
             <h2>Professional coaching expertise shaped by lived leadership experience</h2>
           </Reveal>
 
-          <AnimatedGroup className="why-layout">
-            <div className="card glass why-stat">
-              <span className="why-stat-number">20+</span>
-              <span className="why-stat-label">
-                Years across banking leadership and executive coaching
-              </span>
-            </div>
-            <div className="card glass">
-              <p>
-                What I bring to coaching is a blend of professional coaching
-                expertise and lived leadership experience.
-              </p>
-              <p>
-                With over two decades as a Senior banking executive and several
-                years devoted to executive coaching, I understand leadership not
-                only as a concept but as a real responsibility. I have led large
-                and diverse teams, managed growth mandates, worked within complex
-                institutions, and experienced firsthand the pressures leaders
-                face when performance, people, and expectations all converge.
-              </p>
-            </div>
-          </AnimatedGroup>
+          <Reveal className="prose-block">
+            <p>
+              What I bring to coaching is a blend of professional coaching
+              expertise and lived leadership experience.
+            </p>
+            <p>
+              With over two decades as a Senior banking executive and several
+              years devoted to executive coaching, I understand leadership not
+              only as a concept but as a real responsibility. I have led large
+              and diverse teams, managed growth mandates, worked within complex
+              institutions, and experienced firsthand the pressures leaders face
+              when performance, people, and expectations all converge.
+            </p>
+          </Reveal>
 
           <p className="why-chip-lead">Clients value working with me because I bring</p>
           <AnimatedGroup className="why-chip-grid">
