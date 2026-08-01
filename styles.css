@@ -287,13 +287,21 @@ p {
   display: grid;
   grid-template-columns: 1.5fr 1fr;
   gap: 48px;
-  align-items: start;
+  align-items: stretch;
+}
+
+.hero-heading {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .hero-panel {
   padding: 28px;
   position: relative;
-  align-self: start;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   border-radius: var(--radius);
   background: var(--ink-3);
   border: 1px solid var(--line);
@@ -341,8 +349,22 @@ p {
   margin-top: 36px;
 }
 
-.hero-bottom .lead {
+.hero-copy-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--line);
+}
+
+.hero-copy-grid .lead {
   margin-top: 0;
+  max-width: none;
+}
+
+.hero-copy-grid p:last-child {
+  margin-bottom: 0;
+  max-width: none;
 }
 
 .btn-group {
@@ -439,9 +461,13 @@ p {
   margin-bottom: 10px;
 }
 
-/* Pull quote — the signature device. Uses the standard .section padding
-   so the vertical rhythm stays uniform whether a slot holds a full
-   section or a single pulled statement. */
+/* Pull quote — the signature device. Every pull-quote slot on the page
+   shares this same reduced padding, so the rhythm stays uniform among
+   quote moments even though it differs from full content sections. */
+.pull-quote-section {
+  padding: 52px 0;
+}
+
 .pull-quote {
   padding: 0;
 }
@@ -878,12 +904,17 @@ footer {
 
 @media (max-width: 980px) {
   .hero-top,
+  .hero-copy-grid,
   .cta-grid,
   .grid-4,
   .grid-3,
   .grid-2,
   .blog-grid {
     grid-template-columns: 1fr;
+  }
+
+  .hero-copy-grid {
+    gap: 4px;
   }
 
   .nav {
