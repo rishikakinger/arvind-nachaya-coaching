@@ -25,7 +25,7 @@ html {
 
 body {
   margin: 0;
-  font-family: "Inter", sans-serif;
+  font-family: "IBM Plex Sans", sans-serif;
   background: var(--ink);
   color: var(--ivory);
   line-height: 1.7;
@@ -163,7 +163,7 @@ p {
 
 .brand span {
   display: block;
-  font-family: "Inter", sans-serif;
+  font-family: "IBM Plex Sans", sans-serif;
   font-size: 0.76rem;
   font-weight: 500;
   letter-spacing: 0.04em;
@@ -279,7 +279,7 @@ p {
 
 /* Hero */
 .hero {
-  padding: 76px 0 0;
+  padding: 76px 0 96px;
   position: relative;
 }
 
@@ -398,15 +398,35 @@ p {
 }
 
 .card {
+  --mx: 50%;
+  --my: 50%;
   padding: 26px;
   position: relative;
-  transition: transform 0.3s ease, border-color 0.3s ease, background 0.3s ease;
+  overflow: hidden;
+  transition: transform 0.35s ease, border-color 0.35s ease, border-top-color 0.35s ease,
+    background 0.35s ease, box-shadow 0.35s ease;
+}
+
+.card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(240px circle at var(--mx) var(--my), rgba(216, 185, 120, 0.1), transparent 70%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.card:hover::after {
+  opacity: 1;
 }
 
 .card:hover {
-  transform: translateY(-2px);
+  transform: translateY(-4px);
   border-color: var(--line-strong);
+  border-top-color: var(--brass);
   background: var(--ink-4);
+  box-shadow: 0 22px 48px rgba(0, 0, 0, 0.38);
 }
 
 .list {
@@ -419,9 +439,11 @@ p {
   margin-bottom: 10px;
 }
 
-/* Pull quote — the signature device */
+/* Pull quote — the signature device. Uses the standard .section padding
+   so the vertical rhythm stays uniform whether a slot holds a full
+   section or a single pulled statement. */
 .pull-quote {
-  padding: 20px 0 6px;
+  padding: 0;
 }
 
 .pull-quote blockquote {
@@ -450,6 +472,12 @@ p {
   align-items: start;
   padding: 30px 4px;
   border-bottom: 1px solid var(--line);
+  transition: border-color 0.3s ease, padding-left 0.3s ease;
+}
+
+.step:hover {
+  border-color: var(--line-strong);
+  padding-left: 12px;
 }
 
 .step-number {
@@ -459,25 +487,24 @@ p {
   color: var(--brass);
   line-height: 1;
   padding-top: 2px;
+  transition: color 0.3s ease;
+}
+
+.step:hover .step-number {
+  color: var(--brass-light);
 }
 
 .quote {
-  padding: 26px;
   font-family: "Fraunces", serif;
   font-style: italic;
   font-size: 1.06rem;
   color: var(--ivory);
   min-height: 100%;
-  transition: border-color 0.3s ease;
-}
-
-.quote:hover {
-  border-color: var(--line-strong);
 }
 
 .quote span {
   display: block;
-  font-family: "Inter", sans-serif;
+  font-family: "IBM Plex Sans", sans-serif;
   font-style: normal;
   margin-top: 18px;
   color: var(--brass);
@@ -517,20 +544,39 @@ p {
 }
 
 .faq-icon {
+  position: relative;
   flex-shrink: 0;
   width: 26px;
   height: 26px;
   border-radius: 50%;
   border: 1px solid var(--line-strong);
-  display: grid;
-  place-items: center;
-  color: var(--brass);
   transition: transform 0.35s ease, border-color 0.35s ease;
-  font-size: 0.9rem;
+}
+
+.faq-icon::before,
+.faq-icon::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background: var(--brass);
+  transition: background 0.3s ease;
+}
+
+.faq-icon::before {
+  width: 10px;
+  height: 1.5px;
+  transform: translate(-50%, -50%);
+}
+
+.faq-icon::after {
+  width: 1.5px;
+  height: 10px;
+  transform: translate(-50%, -50%);
 }
 
 .faq-item.open .faq-icon {
-  transform: rotate(135deg);
+  transform: rotate(45deg);
   border-color: var(--brass);
 }
 
@@ -929,6 +975,7 @@ footer {
   .reveal,
   .card,
   .quote,
+  .step,
   .btn,
   .faq-answer,
   .faq-icon {

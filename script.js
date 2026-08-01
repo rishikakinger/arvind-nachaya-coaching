@@ -25,6 +25,20 @@ const revealObserver = new IntersectionObserver(
 document.querySelectorAll(".reveal").forEach((el) => revealObserver.observe(el));
 
 // ---------------------------------------------------------------
+// Cursor-tracked spotlight glow on cards (skip if the visitor
+// prefers reduced motion)
+// ---------------------------------------------------------------
+if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+  document.querySelectorAll(".card").forEach((card) => {
+    card.addEventListener("mousemove", (e) => {
+      const rect = card.getBoundingClientRect();
+      card.style.setProperty("--mx", `${e.clientX - rect.left}px`);
+      card.style.setProperty("--my", `${e.clientY - rect.top}px`);
+    });
+  });
+}
+
+// ---------------------------------------------------------------
 // Mobile nav toggle
 // ---------------------------------------------------------------
 const navToggle = document.getElementById("navToggle");
