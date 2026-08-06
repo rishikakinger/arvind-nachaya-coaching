@@ -643,31 +643,56 @@ p {
   color: var(--brass-light);
 }
 
-.quote {
-  font-family: "Fraunces", serif;
-  font-style: italic;
-  font-size: 1.06rem;
-  color: var(--ivory);
-  min-height: 100%;
+/* Testimonials — masonry columns so varied quote lengths flow evenly */
+.testimonial-masonry {
+  columns: 3 300px;
+  column-gap: 20px;
 }
 
-.quote span {
+.testimonial {
+  break-inside: avoid;
+  width: 100%;
+  margin: 0 0 20px;
+  padding: 28px;
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.015);
+  border: 1px solid var(--line);
+}
+
+.testimonial blockquote {
+  margin: 0 0 20px;
+  color: #d6cebd;
+  font-size: 1.02rem;
+  line-height: 1.62;
+}
+
+.testimonial blockquote::before {
+  content: "\201C";
   display: block;
-  font-family: "Newsreader", serif;
-  font-style: normal;
-  margin-top: 18px;
+  font-family: "Fraunces", serif;
+  font-size: 2.4rem;
+  line-height: 0.2;
   color: var(--brass);
-  font-size: 0.82rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  margin-bottom: 16px;
 }
 
-.testimonial-note {
-  margin-top: 18px;
-  font-size: 0.86rem;
-  color: var(--stone);
-  font-style: italic;
+.testimonial figcaption {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+}
+
+.testimonial-name {
+  font-family: "Fraunces", serif;
+  font-size: 1rem;
+  color: #fff;
+}
+
+.testimonial-title {
+  font-size: 0.82rem;
+  color: var(--brass);
 }
 
 /* FAQ accordion (animated) */

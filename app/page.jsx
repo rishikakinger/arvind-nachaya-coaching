@@ -14,6 +14,63 @@ const CREDIBILITY_ITEMS = [
   "Coaching leaders across industries and geographies",
 ];
 
+const TESTIMONIALS = [
+  {
+    quote:
+      "Getting coached by Arvind is akin to seeing and talking to a reflection of yourself in the mirror. But instead of your current self, you see your future self — wiser and more grounded. My coaching journey with Arvind was truly transformative, both personally and professionally. People often say the best changes come from within; Arvind pulls the best from inside you.",
+    name: "Soon Hau Chua",
+    title: "Assistant Director, Design — GovTech Singapore",
+  },
+  {
+    quote:
+      "Arvind has been an exceptional coach during a pivotal phase as I stepped into the Managing Director role. What stood out most was his ability to ask the right questions — guiding me to reflect deeply and arrive at my own answers, rather than offering prescriptive advice. He has a unique ability to bring clarity to ambiguity.",
+    name: "Ipshita Ghosh",
+    title: "Managing Director — Accenture",
+  },
+  {
+    quote:
+      "My experience of working with Arvind has been both grounding and transformative. He brings a rare blend of empathy, insight, and quiet rigor to his coaching. Through our work together, I gained greater self-awareness, clarity in decision-making, and a more centred way of engaging with complex leadership challenges. Arvind doesn't offer answers; he enables shifts — and those shifts endure.",
+    name: "Srinivas Burli",
+    title: "Senior Director, Talent Acquisition — Twilio India",
+  },
+  {
+    quote:
+      "I worked with Arvind during a period of significant change, including the Kellanova acquisition by Mars, when he was instrumental in helping me strengthen my leadership impact. His coaching was pragmatic, insight-driven, and deeply personal. As a result, I built greater confidence and leadership presence during a critical transition.",
+    name: "David Pearson",
+    title: "Senior Brand Director — Mars",
+  },
+  {
+    quote:
+      "What truly stood out about my coach was his ability to ask deeply meaningful questions — never surface-level, always thought-provoking. Rather than offering ready-made answers, he enabled me to think differently, stretch my perspectives, and explore possibilities I hadn't considered before. One of the most tangible outcomes was becoming far more consistent in my communication.",
+    name: "Dr Lavanya Kannairam",
+    title: "Senior Manager, Global Early Talent & Regional TA — Caterpillar India",
+  },
+  {
+    quote:
+      "Arvind was a tremendous support during a particularly demanding period, when I was leading a young team in a fast-moving tech company. He helped me cut through the noise, regain focus, and turn challenges into clear, actionable steps for both team leadership and stakeholder management.",
+    name: "Neil Yang",
+    title: "Head of Campus Recruiting & Early Careers — Grab, Singapore",
+  },
+  {
+    quote:
+      "What distinguishes Arvind as a mentor is his ability to move quickly from principle to practice. Every conversation produced something I could act on immediately. He helped me think clearly through some of the most complicated situations a risk professional encounters. His advice is grounded, specific, and deeply human.",
+    name: "Arina Eremina",
+    title: "SVP, Portfolio Risk",
+  },
+  {
+    quote:
+      "Arvind helped me navigate leadership challenges with clarity while strengthening key skills like prioritization and time management. A key outcome was building a clear structure and working principles for how I want my team to operate — something that has had a real impact on my leadership approach.",
+    name: "Utkarsh Jadhav",
+    title: "Manager, Advanced Support — Coupa Software",
+  },
+  {
+    quote:
+      "Working with Arvind made a meaningful difference for me, both professionally and personally. He didn't just support me, but also challenged me and held me accountable in a way that felt both constructive and encouraging. As a result, I feel more grounded, confident, and consistent in my work. The growth feels genuine and lasting.",
+    name: "Anna Wallberg",
+    title: "",
+  },
+];
+
 export default function HomePage() {
   const latestPosts = getAllPosts().slice(0, 3);
 
@@ -422,29 +479,17 @@ export default function HomePage() {
             <h2>What clients say</h2>
           </Reveal>
 
-          <AnimatedGroup className="grid-3">
-            <div className="quote card glass">
-              &quot;Arvind brings a rare combination of business wisdom, calm
-              presence, and the ability to ask exactly the right question at
-              the right time.&quot;
-              <span>Client Perspective</span>
-            </div>
-            <div className="quote card glass">
-              &quot;Our work together helped me think more clearly, lead with
-              more confidence, and navigate a critical transition with far
-              greater effectiveness.&quot;
-              <span>Client Perspective</span>
-            </div>
-            <div className="quote card glass">
-              &quot;He combines executive insight with genuine coaching depth,
-              making every conversation both practical and transformative.&quot;
-              <span>Client Perspective</span>
-            </div>
-          </AnimatedGroup>
-          <Reveal as="p" className="testimonial-note">
-            Sample quotes shown as placeholders — to be replaced with real
-            client testimonials.
-          </Reveal>
+          <div className="testimonial-masonry">
+            {TESTIMONIALS.map((t) => (
+              <Reveal as="figure" className="testimonial" key={t.name}>
+                <blockquote>{t.quote}</blockquote>
+                <figcaption>
+                  <span className="testimonial-name">{t.name}</span>
+                  {t.title && <span className="testimonial-title">{t.title}</span>}
+                </figcaption>
+              </Reveal>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -505,7 +550,13 @@ export default function HomePage() {
                   <a href="tel:+919930407361">+91 9930407361</a>
                 </p>
                 <p>
-                  <a href="#" title="LinkedIn link to be added">LinkedIn: Arvind Nachaya</a>
+                  <a
+                    href="https://www.linkedin.com/in/arvindnachaya/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    LinkedIn: Arvind Nachaya
+                  </a>
                 </p>
               </div>
             </div>

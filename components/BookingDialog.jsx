@@ -1,17 +1,16 @@
 "use client";
 
-import { useEffect, useId } from "react";
+import { useEffect } from "react";
 import {
   Dialog,
   DialogTrigger,
   DialogContent,
   DialogHeader,
   DialogTitle,
-  DialogDescription,
   DialogClose,
 } from "./core/dialog";
 
-const CALENDLY_URL = "https://calendly.com/rishikakinger/30min";
+const CALENDLY_URL = "https://calendly.com/arvind-solutionsatsource/30min";
 
 function CalendlyInlineWidget() {
   useEffect(() => {
@@ -38,13 +37,7 @@ export function BookingDialog({ triggerClassName, children }) {
       <DialogTrigger className={triggerClassName}>{children}</DialogTrigger>
       <DialogContent>
         <DialogHeader>
-          <div>
-            <DialogTitle>Book a Discovery Conversation</DialogTitle>
-            <DialogDescription>
-              Pick a time that works for you — a short, no-pressure call to explore
-              whether coaching is the right fit.
-            </DialogDescription>
-          </div>
+          <DialogTitle>Book a Discovery Conversation</DialogTitle>
           <DialogClose />
         </DialogHeader>
         <CalendlyInlineWidget />
