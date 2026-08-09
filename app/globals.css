@@ -266,9 +266,23 @@ button { color: inherit; }
 
 .testimonials-section { background: var(--white); }
 .testimonial-slider { position: relative; max-width: 980px; margin: 0 auto; padding: 55px 100px 25px; border: 1px solid var(--line); border-radius: 24px; background: var(--paper); }
-.testimonial-track { position: relative; min-height: 315px; }
-.testimonial { display: none; text-align: center; animation: fadeUp .35s ease; }
-.testimonial.active { display: block; }
+.testimonial-track { display: grid; min-height: 315px; }
+/* All slides share one grid cell so the track sizes to the tallest; the
+   active slide fades and slides in while the others fade out. */
+.testimonial {
+  grid-area: 1 / 1;
+  text-align: center;
+  opacity: 0;
+  transform: translateX(32px);
+  visibility: hidden;
+  transition: opacity .55s ease, transform .55s ease, visibility 0s linear .55s;
+}
+.testimonial.active {
+  opacity: 1;
+  transform: none;
+  visibility: visible;
+  transition: opacity .55s ease, transform .55s ease, visibility 0s;
+}
 .testimonial blockquote { margin: 0 auto 40px; max-width: 760px; font-family: var(--serif); font-size: clamp(1.8rem, 3.8vw, 3.1rem); line-height: 1.25; letter-spacing: -.025em; }
 .testimonial p { display: flex; flex-direction: column; margin: 0; }
 .testimonial p strong { font-size: .9rem; }
@@ -284,13 +298,14 @@ button { color: inherit; }
 .about-grid { display: grid; grid-template-columns: .7fr 1.3fr; gap: 80px; align-items: center; }
 .about-visual { display: flex; justify-content: center; }
 .portrait-frame { position: relative; width: min(380px, 100%); aspect-ratio: 4/5; isolation: isolate; }
-/* Offset accent panel sits behind the photo for editorial depth */
+/* A faint offset panel hints at depth without a heavy shadow */
 .portrait-frame::before {
   content: '';
   position: absolute;
-  inset: 30px -22px -22px 30px;
+  inset: 14px -10px -10px 14px;
   border-radius: 26px;
-  background: linear-gradient(150deg, var(--sand), var(--sage));
+  background: var(--sage);
+  opacity: .3;
   z-index: -1;
 }
 .portrait-frame img {
@@ -300,12 +315,12 @@ button { color: inherit; }
   object-position: center 22%;
   display: block;
   border-radius: 26px;
-  box-shadow: 0 24px 50px rgba(16,39,51,.22);
-  outline: 1px solid rgba(16,39,51,.08);
+  box-shadow: 0 12px 28px rgba(16,39,51,.12);
+  outline: 1px solid rgba(16,39,51,.07);
   outline-offset: -1px;
   transition: transform .5s ease, box-shadow .5s ease;
 }
-.portrait-frame:hover img { transform: translateY(-4px); box-shadow: 0 30px 60px rgba(16,39,51,.28); }
+.portrait-frame:hover img { transform: translateY(-3px); box-shadow: 0 16px 34px rgba(16,39,51,.16); }
 .about-copy h2 { margin-bottom: 28px; }
 .about-copy > p { color: #40535b; }
 .credentials { display: grid; grid-template-columns: 1fr 1fr; gap: 0 24px; margin-top: 34px; border-top: 1px solid var(--line); }
