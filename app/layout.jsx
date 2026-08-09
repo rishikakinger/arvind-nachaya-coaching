@@ -43,6 +43,8 @@ export default function RootLayout({ children }) {
           href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
           rel="stylesheet"
         />
+        <link rel="stylesheet" href="https://assets.calendly.com/assets/external/widget.css" />
+        <script src="https://assets.calendly.com/assets/external/widget.js" async />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(JSON_LD) }}
@@ -80,7 +82,10 @@ export default function RootLayout({ children }) {
               <a href="/#about">About</a>
               <a
                 className="nav-cta"
-                href="mailto:arvind@solutionsatsource.in?subject=Discovery%20Conversation"
+                href="https://calendly.com/arvind-solutionsatsource/30min?utm_source=website&utm_campaign=discovery-conversation"
+                target="_blank"
+                rel="noopener noreferrer"
+                data-calendly-popup
               >
                 Book a conversation
               </a>

@@ -26,7 +26,10 @@ export default function HomePage() {
             <div className="hero-actions">
               <a
                 className="button button-primary"
-                href="mailto:arvind@solutionsatsource.in?subject=Discovery%20Conversation"
+                href="https://calendly.com/arvind-solutionsatsource/30min?utm_source=website&utm_campaign=discovery-conversation"
+                target="_blank"
+                rel="noopener noreferrer"
+                data-calendly-popup
               >
                 Book a discovery conversation
               </a>
@@ -180,7 +183,10 @@ export default function HomePage() {
               </ul>
               <a
                 className="button button-primary"
-                href="mailto:arvind@solutionsatsource.in?subject=Private%20Executive%20Coaching%20Enquiry"
+                href="https://calendly.com/arvind-solutionsatsource/30min?utm_source=website&utm_campaign=private-coaching"
+                target="_blank"
+                rel="noopener noreferrer"
+                data-calendly-popup
               >
                 Explore private coaching
               </a>
@@ -205,7 +211,10 @@ export default function HomePage() {
               </ul>
               <a
                 className="button button-outline"
-                href="mailto:arvind@solutionsatsource.in?subject=Organisation-Sponsored%20Coaching%20Enquiry"
+                href="https://calendly.com/arvind-solutionsatsource/30min?utm_source=website&utm_campaign=organisation-sponsored"
+                target="_blank"
+                rel="noopener noreferrer"
+                data-calendly-popup
               >
                 Discuss organisational coaching
               </a>
@@ -469,7 +478,10 @@ export default function HomePage() {
             </p>
             <a
               className="text-link"
-              href="mailto:arvind@solutionsatsource.in?subject=AI-era%20leadership%20coaching"
+              href="https://calendly.com/arvind-solutionsatsource/30min?utm_source=website&utm_campaign=ai-era-leadership"
+              target="_blank"
+              rel="noopener noreferrer"
+              data-calendly-popup
             >
               Discuss an AI-era leadership journey <span>→</span>
             </a>
@@ -806,13 +818,19 @@ export default function HomePage() {
           <div className="cta-actions">
             <a
               className="button button-light"
-              href="mailto:arvind@solutionsatsource.in?subject=Private%20Executive%20Coaching%20Enquiry"
+              href="https://calendly.com/arvind-solutionsatsource/30min?utm_source=website&utm_campaign=private-coaching"
+              target="_blank"
+              rel="noopener noreferrer"
+              data-calendly-popup
             >
               I am seeking private coaching
             </a>
             <a
               className="button button-ghost-light"
-              href="mailto:arvind@solutionsatsource.in?subject=Organisation-Sponsored%20Coaching%20Enquiry"
+              href="https://calendly.com/arvind-solutionsatsource/30min?utm_source=website&utm_campaign=organisation-sponsored"
+              target="_blank"
+              rel="noopener noreferrer"
+              data-calendly-popup
             >
               I represent an organisation
             </a>

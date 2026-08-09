@@ -158,6 +158,20 @@ export function SiteScript() {
       cleanups.push(() => summary.removeEventListener("click", onClick));
     });
 
+    // Calendly popup — progressive enhancement over the anchor's href.
+    // With JS + the Calendly widget loaded we open an in-page modal; otherwise
+    // the link falls back to opening Calendly in a new tab.
+    const bookingLinks = document.querySelectorAll("[data-calendly-popup]");
+    bookingLinks.forEach((link) => {
+      const onClick = (e) => {
+        if (!window.Calendly) return; // fall through to normal navigation
+        e.preventDefault();
+        window.Calendly.initPopupWidget({ url: link.getAttribute("href") });
+      };
+      link.addEventListener("click", onClick);
+      cleanups.push(() => link.removeEventListener("click", onClick));
+    });
+
     // Stagger reveal entrances within card grids
     const STAGGER_GRIDS = [
       ".audience-grid",
