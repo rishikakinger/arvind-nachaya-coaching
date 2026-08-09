@@ -125,6 +125,58 @@ export function SiteScript() {
       });
     }
 
+    // Animated FAQ accordion. Each <details> keeps the `open` attribute so its
+    // answer is always in the render tree — that makes scrollHeight reliable at
+    // any time. A .faq-open class + explicit height animate the open/close.
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const faqItems = document.querySelectorAll(".faq-list details");
+    faqItems.forEach((details) => {
+      const summary = details.querySelector("summary");
+      const answer = details.querySelector(".faq-answer");
+      if (!summary || !answer) return;
+      const onClick = (e) => {
+        e.preventDefault();
+        const isOpen = details.classList.toggle("faq-open");
+        if (reduceMotion) {
+          answer.style.height = isOpen ? "auto" : "0px";
+          return;
+        }
+        if (isOpen) {
+          answer.style.height = answer.scrollHeight + "px";
+          const done = () => {
+            answer.style.height = "auto";
+            answer.removeEventListener("transitionend", done);
+          };
+          answer.addEventListener("transitionend", done);
+        } else {
+          answer.style.height = answer.scrollHeight + "px";
+          void answer.offsetHeight; // force reflow so the next set animates
+          answer.style.height = "0px";
+        }
+      };
+      summary.addEventListener("click", onClick);
+      cleanups.push(() => summary.removeEventListener("click", onClick));
+    });
+
+    // Stagger reveal entrances within card grids
+    const STAGGER_GRIDS = [
+      ".audience-grid",
+      ".focus-grid",
+      ".motion-grid",
+      ".ai-cards",
+      ".levels-grid",
+      ".work-modes-grid",
+    ];
+    STAGGER_GRIDS.forEach((sel) => {
+      document.querySelectorAll(sel).forEach((grid) => {
+        Array.from(grid.children)
+          .filter((c) => c.classList.contains("reveal"))
+          .forEach((item, i) => {
+            item.style.transitionDelay = `${Math.min(i * 90, 450)}ms`;
+          });
+      });
+    });
+
     // Scroll reveal
     const revealObserver = new IntersectionObserver(
       (entries) => {

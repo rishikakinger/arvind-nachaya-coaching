@@ -724,68 +724,68 @@ export default function HomePage() {
             </p>
           </div>
           <div className="faq-list reveal">
-            <details>
+            <details className="faq" open>
               <summary>Who is your coaching best suited for?</summary>
-              <p>
+              <div className="faq-answer"><p>
                 Senior leaders, founders, business heads, directors and emerging leaders who
                 want to grow in effectiveness, clarity and leadership impact.
-              </p>
+              </p></div>
             </details>
-            <details>
+            <details className="faq" open>
               <summary>What kinds of issues can coaching help with?</summary>
-              <p>
+              <div className="faq-answer"><p>
                 Strategic thinking, leadership transitions, executive presence, stakeholder
                 influence, team effectiveness, resilience, confidence and greater alignment
                 between purpose and action.
-              </p>
+              </p></div>
             </details>
-            <details>
+            <details className="faq" open>
               <summary>Do you work only with senior executives?</summary>
-              <p>
+              <div className="faq-answer"><p>
                 No. Much of my work is with senior leaders, and I also work with mid-level and
                 emerging leaders preparing for broader responsibility and influence.
-              </p>
+              </p></div>
             </details>
-            <details>
+            <details className="faq" open>
               <summary>Can I engage you privately, independently of my company?</summary>
-              <p>
+              <div className="faq-answer"><p>
                 Yes. Leaders can contract with me directly and fund their own coaching. No
                 employer nomination or organisational sponsor is required, and the coaching
                 goals are set entirely around what matters to you.
-              </p>
+              </p></div>
             </details>
-            <details>
+            <details className="faq" open>
               <summary>Will my company know that I am being coached?</summary>
-              <p>
+              <div className="faq-answer"><p>
                 Not in a privately contracted engagement. The relationship is confidential and
                 there is no reporting to your employer. In organisation-sponsored coaching,
                 information-sharing boundaries are agreed in advance, while the content of
                 coaching conversations remains confidential.
-              </p>
+              </p></div>
             </details>
-            <details>
+            <details className="faq" open>
               <summary>Is coaching virtual or in person?</summary>
-              <p>
+              <div className="faq-answer"><p>
                 Engagements can be conducted virtually. In-person sessions may also be possible
                 depending on context and location.
-              </p>
+              </p></div>
             </details>
-            <details>
+            <details className="faq" open>
               <summary>How long does an engagement usually last?</summary>
-              <p>
+              <div className="faq-answer"><p>
                 The duration depends on the goals and context. Focused engagements may run for
                 three months, while broader leadership-development journeys commonly span six
                 to twelve months.
-              </p>
+              </p></div>
             </details>
-            <details>
+            <details className="faq" open>
               <summary>How is coaching different from mentoring or consulting?</summary>
-              <p>
+              <div className="faq-answer"><p>
                 Coaching does not begin with ready-made answers. It helps the leader think more
                 deeply, access their own clarity and take responsible action. Mentoring or
                 consulting input, when useful, is clearly contracted rather than blended
                 silently into the coaching conversation.
-              </p>
+              </p></div>
             </details>
           </div>
         </div>

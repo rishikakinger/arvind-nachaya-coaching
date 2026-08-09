@@ -571,3 +571,23 @@ details p { margin: -4px 50px 24px 0; color: var(--muted); font-size: .92rem; }
 @media (max-width: 620px) {
   .blog-grid { grid-template-columns: 1fr; }
 }
+
+/* ------------------------------------------------------------------ */
+/* Animated FAQ open/close (grid-rows; content always rendered)        */
+/* Each <details> is kept open so the answer is in the render tree;     */
+/* a .faq-open class toggled by SiteScript drives the height animation. */
+/* ------------------------------------------------------------------ */
+.faq-list details > .faq-answer {
+  height: 0;
+  overflow: hidden;
+  transition: height .34s ease;
+}
+.faq-list .faq-answer > p {
+  margin: 0;
+  padding: 2px 50px 24px 0;
+  color: var(--muted);
+  font-size: .92rem;
+}
+/* Content is always rendered (open attr), so drive the marker off .faq-open */
+.faq-list details summary::after { content: '+'; }
+.faq-list details.faq-open summary::after { content: '−'; }
