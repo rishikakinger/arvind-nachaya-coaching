@@ -678,10 +678,14 @@ export default function HomePage() {
 
       <section className="section about-section" id="about">
         <div className="container about-grid">
-          <div className="about-visual reveal" aria-label="Arvind Nachaya monogram portrait placeholder">
+          <div className="about-visual reveal">
             <div className="portrait-frame">
-              <span>AN</span>
-              <small>Replace with approved portrait</small>
+              <img
+                src="/arvind-nachaya.jpg"
+                alt="Portrait of Arvind Nachaya, executive coach"
+                width={886}
+                height={1069}
+              />
             </div>
           </div>
           <div className="about-copy reveal">

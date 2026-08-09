@@ -102,26 +102,73 @@ export function SiteScript() {
     const nextBtn = document.querySelector(".slider-next");
     if (testimonials.length && dotsWrap && prevBtn && nextBtn) {
       let current = 0;
+      const AUTOPLAY_MS = 6000;
+      let timer = null;
+      const reduceMo = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
       const show = (index) => {
         current = (index + testimonials.length) % testimonials.length;
         testimonials.forEach((item, i) => item.classList.toggle("active", i === current));
         [...dotsWrap.children].forEach((dot, i) => dot.classList.toggle("active", i === current));
       };
+      const stop = () => {
+        if (timer) {
+          clearInterval(timer);
+          timer = null;
+        }
+      };
+      const start = () => {
+        if (reduceMo || testimonials.length < 2) return;
+        stop();
+        timer = setInterval(() => show(current + 1), AUTOPLAY_MS);
+      };
+      // Restart the countdown after any manual interaction so the current
+      // slide gets a full dwell before auto-advancing again.
+      const restart = () => {
+        stop();
+        start();
+      };
       dotsWrap.innerHTML = "";
       testimonials.forEach((_, i) => {
         const dot = document.createElement("button");
         dot.setAttribute("aria-label", `Show testimonial ${i + 1}`);
-        dot.addEventListener("click", () => show(i));
+        dot.addEventListener("click", () => {
+          show(i);
+          restart();
+        });
         dotsWrap.appendChild(dot);
       });
-      const goPrev = () => show(current - 1);
-      const goNext = () => show(current + 1);
+      const goPrev = () => {
+        show(current - 1);
+        restart();
+      };
+      const goNext = () => {
+        show(current + 1);
+        restart();
+      };
       prevBtn.addEventListener("click", goPrev);
       nextBtn.addEventListener("click", goNext);
       show(0);
+      start();
+
+      // Pause on hover so a reader isn't rushed mid-quote
+      const slider = prevBtn.closest(".testimonial-slider") || dotsWrap.parentElement;
+      if (slider) {
+        slider.addEventListener("mouseenter", stop);
+        slider.addEventListener("mouseleave", start);
+      }
+      // Pause while the tab is hidden
+      const onVisibility = () => (document.hidden ? stop() : start());
+      document.addEventListener("visibilitychange", onVisibility);
+
       cleanups.push(() => {
+        stop();
         prevBtn.removeEventListener("click", goPrev);
         nextBtn.removeEventListener("click", goNext);
+        if (slider) {
+          slider.removeEventListener("mouseenter", stop);
+          slider.removeEventListener("mouseleave", start);
+        }
+        document.removeEventListener("visibilitychange", onVisibility);
       });
     }
 

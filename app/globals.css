@@ -283,9 +283,29 @@ button { color: inherit; }
 .about-section { background: var(--paper-2); }
 .about-grid { display: grid; grid-template-columns: .7fr 1.3fr; gap: 80px; align-items: center; }
 .about-visual { display: flex; justify-content: center; }
-.portrait-frame { width: min(400px, 100%); aspect-ratio: 4/5; border-radius: 200px 200px 24px 24px; border: 1px solid rgba(16,39,51,.14); background: linear-gradient(145deg, var(--sage), #d7e1dd); display: flex; flex-direction: column; align-items: center; justify-content: center; box-shadow: var(--shadow); }
-.portrait-frame span { font-family: var(--serif); font-size: 7rem; line-height: 1; color: rgba(16,39,51,.68); }
-.portrait-frame small { margin-top: 20px; font-size: .66rem; text-transform: uppercase; letter-spacing: .1em; opacity: .65; }
+.portrait-frame { position: relative; width: min(380px, 100%); aspect-ratio: 4/5; isolation: isolate; }
+/* Offset accent panel sits behind the photo for editorial depth */
+.portrait-frame::before {
+  content: '';
+  position: absolute;
+  inset: 30px -22px -22px 30px;
+  border-radius: 26px;
+  background: linear-gradient(150deg, var(--sand), var(--sage));
+  z-index: -1;
+}
+.portrait-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 22%;
+  display: block;
+  border-radius: 26px;
+  box-shadow: 0 24px 50px rgba(16,39,51,.22);
+  outline: 1px solid rgba(16,39,51,.08);
+  outline-offset: -1px;
+  transition: transform .5s ease, box-shadow .5s ease;
+}
+.portrait-frame:hover img { transform: translateY(-4px); box-shadow: 0 30px 60px rgba(16,39,51,.28); }
 .about-copy h2 { margin-bottom: 28px; }
 .about-copy > p { color: #40535b; }
 .credentials { display: grid; grid-template-columns: 1fr 1fr; gap: 0 24px; margin-top: 34px; border-top: 1px solid var(--line); }
