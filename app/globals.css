@@ -591,3 +591,51 @@ details p { margin: -4px 50px 24px 0; color: var(--muted); font-size: .92rem; }
 /* Content is always rendered (open attr), so drive the marker off .faq-open */
 .faq-list details summary::after { content: '+'; }
 .faq-list details.faq-open summary::after { content: '−'; }
+
+/* ------------------------------------------------------------------ */
+/* Interactive hover motion. The prefers-reduced-motion block above     */
+/* neutralises every transition/animation here for users who opt out.   */
+/* ------------------------------------------------------------------ */
+
+/* Buttons deepen their lift with a growing shadow */
+.button-primary:hover { background: var(--ink-2); box-shadow: 0 16px 34px rgba(16,39,51,.30); }
+.button-secondary:hover,
+.button-outline:hover,
+.button-ghost-light:hover,
+.button-light:hover { box-shadow: 0 14px 28px rgba(16,39,51,.16); }
+.nav-cta { transition: background .25s ease, color .25s ease, transform .25s ease, box-shadow .25s ease; }
+.nav-cta:hover { transform: translateY(-2px); box-shadow: 0 10px 22px rgba(16,39,51,.18); }
+
+/* P.A.C.T. spiral — the nodes lift and their initial fills in on hover */
+.model-node { transition: transform .3s cubic-bezier(.2,.7,.3,1), box-shadow .3s ease, background .3s ease; }
+.model-node b { transition: background .3s ease, color .3s ease, transform .3s ease; }
+.model-node:hover { transform: translateY(-5px) scale(1.05); background: #fff; box-shadow: 0 22px 46px rgba(16,39,51,.24); z-index: 3; }
+.model-node:hover b { background: var(--ink); color: var(--white); transform: scale(1.08); }
+
+/* Hovering the spiral gently emphasises the centre */
+.model-centre { transition: transform .4s ease, box-shadow .4s ease; }
+.model-shell:hover .model-centre { transform: scale(1.05); box-shadow: 0 24px 54px rgba(16,39,51,.34); }
+
+/* Ambient life — the dashed orbit drifts slowly */
+.orbit-two { animation: orbit-drift 60s linear infinite; }
+@keyframes orbit-drift { to { transform: rotate(360deg); } }
+
+/* Content cards gain a quiet lift on hover */
+.audience-card,
+.ai-card,
+.level-card,
+.credibility-grid > div {
+  transition: transform .25s ease, box-shadow .25s ease, background .25s ease;
+}
+.audience-card:hover,
+.ai-card:hover,
+.level-card:hover { transform: translateY(-4px); background: var(--white); box-shadow: var(--shadow); }
+.credibility-grid > div:hover { background: rgba(255,255,255,.85); }
+
+/* The P.A.C.T. lens big letter nudges up on hover */
+.lens-tab b { transition: transform .25s ease, color .25s ease; }
+.lens-tab:hover b { transform: translateY(-3px); }
+
+/* Text-link arrow slides forward on hover */
+.text-link span { display: inline-block; transition: transform .25s ease; }
+.text-link:hover span { transform: translateX(5px); }
