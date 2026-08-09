@@ -266,23 +266,9 @@ button { color: inherit; }
 
 .testimonials-section { background: var(--white); }
 .testimonial-slider { position: relative; max-width: 980px; margin: 0 auto; padding: 55px 100px 25px; border: 1px solid var(--line); border-radius: 24px; background: var(--paper); }
-.testimonial-track { display: grid; min-height: 315px; }
-/* All slides share one grid cell so the track sizes to the tallest; the
-   active slide fades and slides in while the others fade out. */
-.testimonial {
-  grid-area: 1 / 1;
-  text-align: center;
-  opacity: 0;
-  transform: translateX(32px);
-  visibility: hidden;
-  transition: opacity .55s ease, transform .55s ease, visibility 0s linear .55s;
-}
-.testimonial.active {
-  opacity: 1;
-  transform: none;
-  visibility: visible;
-  transition: opacity .55s ease, transform .55s ease, visibility 0s;
-}
+.testimonial-track { position: relative; min-height: 315px; }
+.testimonial { display: none; text-align: center; animation: fadeUp .35s ease; }
+.testimonial.active { display: block; }
 .testimonial blockquote { margin: 0 auto 40px; max-width: 760px; font-family: var(--serif); font-size: clamp(1.8rem, 3.8vw, 3.1rem); line-height: 1.25; letter-spacing: -.025em; }
 .testimonial p { display: flex; flex-direction: column; margin: 0; }
 .testimonial p strong { font-size: .9rem; }

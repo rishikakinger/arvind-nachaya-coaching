@@ -102,9 +102,8 @@ export function SiteScript() {
     const nextBtn = document.querySelector(".slider-next");
     if (testimonials.length && dotsWrap && prevBtn && nextBtn) {
       let current = 0;
-      const AUTOPLAY_MS = 6000;
+      const AUTOPLAY_MS = 2500;
       let timer = null;
-      const reduceMo = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
       const show = (index) => {
         current = (index + testimonials.length) % testimonials.length;
         testimonials.forEach((item, i) => item.classList.toggle("active", i === current));
@@ -117,7 +116,7 @@ export function SiteScript() {
         }
       };
       const start = () => {
-        if (reduceMo || testimonials.length < 2) return;
+        if (testimonials.length < 2) return;
         stop();
         timer = setInterval(() => show(current + 1), AUTOPLAY_MS);
       };
