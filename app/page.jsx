@@ -1,566 +1,824 @@
-import { Reveal } from "@/components/Reveal";
-import { HeroSplash } from "@/components/HeroSplash";
-import { PullQuote } from "@/components/PullQuote";
-import { FaqAccordion } from "@/components/FaqAccordion";
-import { ContactForm } from "@/components/ContactForm";
-import { BookingDialog } from "@/components/BookingDialog";
-import { BlogCard } from "@/components/BlogCard";
-import { AnimatedGroup } from "@/components/core/animated-group";
-import { getAllPosts } from "@/lib/posts";
-
-const CREDIBILITY_ITEMS = [
-  "PCC, International Coaching Federation",
-  "Former Banking & Business Leader",
-  "Coaching leaders across industries and geographies",
-];
-
-const TESTIMONIALS = [
-  {
-    quote:
-      "Getting coached by Arvind is akin to seeing and talking to a reflection of yourself in the mirror. But instead of your current self, you see your future self — wiser and more grounded. My coaching journey with Arvind was truly transformative, both personally and professionally. People often say the best changes come from within; Arvind pulls the best from inside you.",
-    name: "Soon Hau Chua",
-    title: "Assistant Director, Design — GovTech Singapore",
-  },
-  {
-    quote:
-      "Arvind has been an exceptional coach during a pivotal phase as I stepped into the Managing Director role. What stood out most was his ability to ask the right questions — guiding me to reflect deeply and arrive at my own answers, rather than offering prescriptive advice. He has a unique ability to bring clarity to ambiguity.",
-    name: "Ipshita Ghosh",
-    title: "Managing Director — Accenture",
-  },
-  {
-    quote:
-      "My experience of working with Arvind has been both grounding and transformative. He brings a rare blend of empathy, insight, and quiet rigor to his coaching. Through our work together, I gained greater self-awareness, clarity in decision-making, and a more centred way of engaging with complex leadership challenges. Arvind doesn't offer answers; he enables shifts — and those shifts endure.",
-    name: "Srinivas Burli",
-    title: "Senior Director, Talent Acquisition — Twilio India",
-  },
-  {
-    quote:
-      "I worked with Arvind during a period of significant change, including the Kellanova acquisition by Mars, when he was instrumental in helping me strengthen my leadership impact. His coaching was pragmatic, insight-driven, and deeply personal. As a result, I built greater confidence and leadership presence during a critical transition.",
-    name: "David Pearson",
-    title: "Senior Brand Director — Mars",
-  },
-  {
-    quote:
-      "What truly stood out about my coach was his ability to ask deeply meaningful questions — never surface-level, always thought-provoking. Rather than offering ready-made answers, he enabled me to think differently, stretch my perspectives, and explore possibilities I hadn't considered before. One of the most tangible outcomes was becoming far more consistent in my communication.",
-    name: "Dr Lavanya Kannairam",
-    title: "Senior Manager, Global Early Talent & Regional TA — Caterpillar India",
-  },
-  {
-    quote:
-      "Arvind was a tremendous support during a particularly demanding period, when I was leading a young team in a fast-moving tech company. He helped me cut through the noise, regain focus, and turn challenges into clear, actionable steps for both team leadership and stakeholder management.",
-    name: "Neil Yang",
-    title: "Head of Campus Recruiting & Early Careers — Grab, Singapore",
-  },
-  {
-    quote:
-      "What distinguishes Arvind as a mentor is his ability to move quickly from principle to practice. Every conversation produced something I could act on immediately. He helped me think clearly through some of the most complicated situations a risk professional encounters. His advice is grounded, specific, and deeply human.",
-    name: "Arina Eremina",
-    title: "SVP, Portfolio Risk",
-  },
-  {
-    quote:
-      "Arvind helped me navigate leadership challenges with clarity while strengthening key skills like prioritization and time management. A key outcome was building a clear structure and working principles for how I want my team to operate — something that has had a real impact on my leadership approach.",
-    name: "Utkarsh Jadhav",
-    title: "Manager, Advanced Support — Coupa Software",
-  },
-  {
-    quote:
-      "Working with Arvind made a meaningful difference for me, both professionally and personally. He didn't just support me, but also challenged me and held me accountable in a way that felt both constructive and encouraging. As a result, I feel more grounded, confident, and consistent in my work. The growth feels genuine and lasting.",
-    name: "Anna Wallberg",
-    title: "",
-  },
-];
-
 export default function HomePage() {
-  const latestPosts = getAllPosts().slice(0, 3);
-
   return (
     <>
-      <HeroSplash />
-
-      <section className="section hero-intro" id="intro">
-        <div className="container">
-          <Reveal className="hero-intro-copy">
-            <p className="lead">
-              I work with senior leaders, founders, and emerging executives to
-              strengthen strategic thinking, executive presence, team leadership,
-              and resilience, helping them lead with greater clarity, confidence,
-              and lasting impact.
+      <section className="hero">
+        <div className="hero-glow glow-one" aria-hidden="true"></div>
+        <div className="hero-glow glow-two" aria-hidden="true"></div>
+        <div className="container hero-grid">
+          <div className="hero-copy reveal">
+            <p className="eyebrow">
+              ICF Professional Certified Coach · Former Banking and Business Leader
             </p>
-            <p className="hero-intro-body">
-              In today&apos;s demanding business environment, leadership calls for
-              far more than experience or technical expertise. It requires
-              perspective, self-awareness, adaptability, and the ability to stay
-              clear-headed under pressure. My coaching helps leaders develop these
-              qualities so they lead with greater presence and purpose, stay
-              aligned with their values. This clarity allows them to be confident
-              in their decision-making process.
+            <h1>
+              Executive coaching for leaders navigating{" "}
+              <em>growth, transition and complexity.</em>
+            </h1>
+            <p className="hero-lead">
+              I work with senior leaders, founders and emerging executives to strengthen
+              strategic thinking, executive presence, team leadership and resilience. Leaders
+              may engage me privately and independently of their employer, or through an
+              organisation-sponsored coaching journey.
             </p>
-
-            <div className="btn-group">
-              <BookingDialog triggerClassName="btn btn-primary">
-                Book a Discovery Conversation
-              </BookingDialog>
-              <a href="#approach" className="btn btn-secondary">
-                Explore My Coaching Approach
+            <p className="hero-support">
+              In either setting, coaching creates a confidential space to pause, reflect
+              deeply and move forward with greater intention.
+            </p>
+            <div className="hero-actions">
+              <a
+                className="button button-primary"
+                href="mailto:arvind@solutionsatsource.in?subject=Discovery%20Conversation"
+              >
+                Book a discovery conversation
+              </a>
+              <a className="button button-secondary" href="#ways-to-work">
+                See ways to work together
               </a>
             </div>
-          </Reveal>
+          </div>
 
-          <div className="credibility-strip">
-            <div className="credibility-track">
-              {[...CREDIBILITY_ITEMS, ...CREDIBILITY_ITEMS].map((item, i) => (
-                <div className="credibility-item" key={i} aria-hidden={i >= CREDIBILITY_ITEMS.length}>
-                  {item}
-                </div>
-              ))}
+          <div className="hero-model reveal" aria-label="P.A.C.T. coaching model visual">
+            <div className="model-shell">
+              <div className="model-orbit orbit-one"></div>
+              <div className="model-orbit orbit-two"></div>
+              <div className="model-centre">
+                <span>The leader and the</span>
+                <strong>live challenge</strong>
+              </div>
+              <div className="model-node node-p">
+                <b>P</b>
+                <span>Possibilities</span>
+              </div>
+              <div className="model-node node-a">
+                <b>A</b>
+                <span>Alignment</span>
+              </div>
+              <div className="model-node node-c">
+                <b>C</b>
+                <span>Clarity</span>
+              </div>
+              <div className="model-node node-t">
+                <b>T</b>
+                <span>Transformation</span>
+              </div>
+            </div>
+            <div className="model-caption">
+              <span>Context &amp; System</span>
+              <span>Dynamic lenses, not a fixed funnel</span>
+              <span>Evidence &amp; Sustainment</span>
             </div>
           </div>
         </div>
       </section>
 
-      <PullQuote>
-        Coaching offers a space to pause, reflect deeply, and move forward with
-        greater intention.
-      </PullQuote>
-
-      <section className="section" id="who">
-        <div className="container">
-          <Reveal className="section-head">
-            <div className="eyebrow">Who I Work With</div>
-            <h2>Trusted coaching for leaders operating in high-stakes environments</h2>
-            <p className="lead">
-              I work with leaders who are looking for a trusted thinking partner to
-              help them navigate complexity, growth, pressure, and change.
-            </p>
-          </Reveal>
-
-          <AnimatedGroup className="grid-2">
-            <div className="card glass">
-              <h3>My clients typically include</h3>
-              <ul className="list">
-                <li>Senior executives and business heads in large domestic and global corporations</li>
-                <li>Founders and entrepreneurs</li>
-                <li>Directors and functional leaders</li>
-                <li>Mid-level leaders preparing for broader responsibilities</li>
-                <li>Professionals in transition seeking greater purpose and effectiveness in how they lead</li>
-              </ul>
-            </div>
-            <div className="card glass">
-              <h3>Range and depth of my coaching work</h3>
-              <p>
-                My coaching spans industries and geographies, supporting leaders
-                from mid-management to Senior Management.
-              </p>
-              <p>
-                A significant share of my work has been with Managing Directors,
-                Directors, and Business Unit Heads.
-              </p>
-            </div>
-          </AnimatedGroup>
+      <section className="credibility" aria-label="Credentials and experience">
+        <div className="container credibility-grid">
+          <div>
+            <strong>PCC</strong>
+            <span>International Coaching Federation</span>
+          </div>
+          <div>
+            <strong>20+ years</strong>
+            <span>Corporate and business leadership</span>
+          </div>
+          <div>
+            <strong>Global</strong>
+            <span>Coaching across industries and cultures</span>
+          </div>
+          <div>
+            <strong>1,300+</strong>
+            <span>Session records informing the model</span>
+          </div>
         </div>
       </section>
 
-      <section className="section" id="challenges">
-        <div className="container">
-          <Reveal className="section-head">
-            <div className="eyebrow">What Leaders Bring to Coaching</div>
-            <h2>Leadership challenges are rarely about capability alone</h2>
+      <section className="section section-intro" id="approach">
+        <div className="container two-col">
+          <div className="section-heading reveal">
+            <p className="eyebrow">A trusted thinking partnership</p>
+            <h2>Leaders rarely bring abstract leadership problems.</h2>
+          </div>
+          <div className="prose reveal">
             <p className="lead">
-              Leaders rarely come to coaching because they lack ability. More
-              often, they seek support because the demands of leadership have
-              become more complex, more visible, and more consequential.
+              They bring live situations where performance, people, judgement and
+              expectations converge.
             </p>
-          </Reveal>
+            <p>
+              The issue may be a high-stakes decision, an inherited team, a strategic
+              transition, a stakeholder impasse, a difficult conversation or the need to lead
+              through ambiguity without losing clarity or trust.
+            </p>
+            <p>
+              My coaching begins with the reality the leader is facing. It provides a safe,
+              thoughtful and appropriately challenging space to step back, examine
+              assumptions, understand what matters and build a practical path forward.
+            </p>
+          </div>
+        </div>
 
-          <AnimatedGroup className="theme-grid">
-            {[
-              "Thinking more strategically and gaining clarity while making decisions",
-              "Leading with greater confidence during uncertainty",
-              "Building stronger, more accountable teams",
-              "Navigating transitions into broader or more senior roles",
-              "Developing resilience in high-pressure environments",
-              "Gaining clarity on difficult people, business, or career decisions",
-              "Strengthening executive presence and influence",
-              "Aligning personal values with professional leadership",
-              "Breaking patterns that may be limiting growth or effectiveness",
-            ].map((item) => (
-              <div className="theme-item" key={item}>
-                {item}
+        <div className="container audience-grid">
+          <article className="audience-card reveal">
+            <span>01</span>
+            <h3>Senior executives and business heads</h3>
+            <p>Leading through complexity, strategic change and consequential decisions.</p>
+          </article>
+          <article className="audience-card reveal">
+            <span>02</span>
+            <h3>Founders and entrepreneurs</h3>
+            <p>Scaling themselves, their teams and the leadership system around the business.</p>
+          </article>
+          <article className="audience-card reveal">
+            <span>03</span>
+            <h3>Directors and functional leaders</h3>
+            <p>Strengthening influence, executive presence and cross-functional leadership.</p>
+          </article>
+          <article className="audience-card reveal">
+            <span>04</span>
+            <h3>Emerging leaders in transition</h3>
+            <p>
+              Preparing for broader responsibility, greater visibility and a new leadership
+              identity.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section className="section work-modes-section" id="ways-to-work">
+        <div className="container">
+          <div className="section-heading split-heading reveal">
+            <div>
+              <p className="eyebrow">Ways to work together</p>
+              <h2>Coaching can begin with you, or with your organisation.</h2>
+            </div>
+            <p>
+              The coaching architecture remains the same. What changes is how the engagement
+              is contracted, how goals are aligned and whether an organisational sponsor is
+              involved.
+            </p>
+          </div>
+
+          <div className="work-modes-grid">
+            <article className="work-mode-card work-mode-private reveal">
+              <p className="mode-label">Private executive coaching</p>
+              <h3>For leaders choosing to invest in their own development.</h3>
+              <p>
+                You may wish to work with a coach independently of your company, without
+                waiting for a formal leadership programme or organisational nomination. The
+                engagement is contracted directly with you, and your agenda remains entirely
+                your own.
+              </p>
+              <ul>
+                <li>A confidential thinking space with no organisational sponsor</li>
+                <li>Goals shaped around your leadership, career and personal context</li>
+                <li>
+                  Support through role transitions, difficult decisions, stakeholder
+                  challenges or a search for greater purpose
+                </li>
+                <li>
+                  Flexible three-, six- or twelve-month journeys depending on the depth of
+                  work required
+                </li>
+              </ul>
+              <a
+                className="button button-primary"
+                href="mailto:arvind@solutionsatsource.in?subject=Private%20Executive%20Coaching%20Enquiry"
+              >
+                Explore private coaching
+              </a>
+            </article>
+
+            <article className="work-mode-card work-mode-sponsored reveal">
+              <p className="mode-label">Organisation-sponsored coaching</p>
+              <h3>For CHROs, talent leaders and businesses developing critical leaders.</h3>
+              <p>
+                Organisation-sponsored engagements connect the leader’s development with the
+                business context while protecting the confidentiality necessary for honest
+                reflection and meaningful change.
+              </p>
+              <ul>
+                <li>Clear three-way alignment between the leader, sponsor and coach</li>
+                <li>Defined confidentiality boundaries and success markers</li>
+                <li>Optional stakeholder inputs, assessments and progress reviews</li>
+                <li>
+                  Integration with transitions, succession, transformation or
+                  leadership-development priorities
+                </li>
+              </ul>
+              <a
+                className="button button-outline"
+                href="mailto:arvind@solutionsatsource.in?subject=Organisation-Sponsored%20Coaching%20Enquiry"
+              >
+                Discuss organisational coaching
+              </a>
+            </article>
+          </div>
+
+          <div className="confidentiality-note reveal">
+            <strong>Confidentiality is foundational.</strong>
+            <span>
+              In private coaching, there is no reporting to an employer. In sponsored
+              coaching, the boundaries of information-sharing are agreed at the outset, while
+              the content of coaching conversations remains confidential.
+            </span>
+          </div>
+        </div>
+      </section>
+
+      <section className="section themes-section">
+        <div className="container">
+          <div className="section-heading centred reveal">
+            <p className="eyebrow">What leaders often bring to coaching</p>
+            <h2>Complexity becomes workable when the right questions are held.</h2>
+          </div>
+          <div className="theme-cloud reveal" role="list">
+            <span role="listitem">Strategic thinking</span>
+            <span role="listitem">High-stakes decisions</span>
+            <span role="listitem">Executive presence</span>
+            <span role="listitem">Leadership transitions</span>
+            <span role="listitem">Stakeholder influence</span>
+            <span role="listitem">Team accountability</span>
+            <span role="listitem">Values under pressure</span>
+            <span role="listitem">Emotional resilience</span>
+            <span role="listitem">Career direction</span>
+            <span role="listitem">Breaking limiting patterns</span>
+          </div>
+        </div>
+      </section>
+
+      <section className="section pact-section" id="pact">
+        <div className="container">
+          <div className="pact-intro reveal">
+            <div>
+              <p className="eyebrow light">My coaching architecture</p>
+              <h2>The P.A.C.T. Executive Coaching Architecture</h2>
+            </div>
+            <p>
+              P.A.C.T. helps leaders move from complexity to perspective, alignment, grounded
+              decisions and sustained action. The four lenses are dynamic. A leader may enter
+              through any one of them depending on the live situation.
+            </p>
+          </div>
+
+          <div className="architecture reveal">
+            <div className="architecture-band band-top">
+              <strong>Context &amp; System</strong>
+              <span>
+                Mandate · Sponsor alignment · Culture · Stakeholders · Constraints ·
+                Confidentiality
+              </span>
+            </div>
+
+            <div className="lens-layout">
+              <div className="lens-tabs" role="tablist" aria-label="P.A.C.T. lenses">
+                <button className="lens-tab active" data-lens="p" role="tab" aria-selected="true">
+                  <b>P</b>
+                  <span>Possibilities</span>
+                </button>
+                <button className="lens-tab" data-lens="a" role="tab" aria-selected="false">
+                  <b>A</b>
+                  <span>Alignment</span>
+                </button>
+                <button className="lens-tab" data-lens="c" role="tab" aria-selected="false">
+                  <b>C</b>
+                  <span>Clarity</span>
+                </button>
+                <button className="lens-tab" data-lens="t" role="tab" aria-selected="false">
+                  <b>T</b>
+                  <span>Transformation</span>
+                </button>
               </div>
-            ))}
-          </AnimatedGroup>
+
+              <div className="lens-detail" aria-live="polite">
+                <p className="lens-kicker">P · Possibilities</p>
+                <h3>Widen the field of view.</h3>
+                <p>
+                  Surface assumptions, patterns, choices and options that are difficult to see
+                  from inside the immediate problem. Explore what becomes possible when the
+                  leader steps beyond the familiar frame.
+                </p>
+                <div className="lens-question">
+                  What are we not yet seeing, and what new choice becomes available if the
+                  frame changes?
+                </div>
+              </div>
+            </div>
+
+            <div className="architecture-band band-bottom">
+              <strong>Evidence &amp; Sustainment</strong>
+              <span>
+                Observable outcomes · Leader experiments · Stakeholder pulse · Behaviour
+                evidence · 60/90-day review
+              </span>
+            </div>
+          </div>
+
+          <div className="pact-proof reveal">
+            <p>
+              <strong>Practice-grounded.</strong> The refined architecture emerged from a
+              structured review of 1,326 dated coaching-session records across emerging,
+              mid-level and senior-leader populations, together with client feedback. It
+              reflects an established coaching practice rather than a model imposed after the
+              fact.
+            </p>
+          </div>
+
+          <div className="motion-grid">
+            <article className="motion-card reveal">
+              <span className="motion-number">01</span>
+              <h3>Navigate the Maze</h3>
+              <p>
+                Enter the live issue and explore the unknowns, stakeholders, constraints,
+                assumptions and emotional charge without simplifying too early.
+              </p>
+            </article>
+            <article className="motion-card reveal">
+              <span className="motion-number">02</span>
+              <h3>Reflect &amp; Nudge</h3>
+              <p>
+                Create a psychologically safe yet rigorous space for self-observation, pattern
+                recognition, perspective shifts and choice.
+              </p>
+            </article>
+            <article className="motion-card reveal">
+              <span className="motion-number">03</span>
+              <h3>Anchor Change</h3>
+              <p>
+                Translate insight into an explicit experiment, conversation, decision,
+                operating principle or behaviour that can be practised and sustained.
+              </p>
+            </article>
+          </div>
         </div>
       </section>
 
       <section className="section" id="focus">
         <div className="container">
-          <Reveal className="section-head">
-            <div className="eyebrow">Coaching Focus</div>
-            <h2>Five core capabilities for effective, sustainable leadership</h2>
-            <p className="lead">
-              My work with leaders is centered around five core capabilities that
-              are essential for effective and sustainable leadership.
-            </p>
-          </Reveal>
-
-          <div className="timeline">
-            {[
-              ["01", "Strategic Thinking", "Strengthening the ability to step back, see the bigger picture, challenge assumptions, and approach problems with greater clarity and creativity."],
-              ["02", "Team Excellence", "Helping leaders build aligned, high-performing teams rooted in trust, accountability, and shared purpose."],
-              ["03", "Purpose-Driven Leadership", "Supporting leaders in connecting vision, purpose, and values with their everyday decisions and actions."],
-              ["04", "Executive Presence", "Developing credibility, influence, communication, and relationship-building so leaders can lead with both authority and authenticity."],
-              ["05", "Emotional Resilience", "Building the inner steadiness needed to handle ambiguity, pressure, setbacks, and change with maturity and composure."],
-            ].map(([num, title, body]) => (
-              <Reveal key={num} className="step">
-                <div className="step-number">{num}</div>
-                <div>
-                  <h3>{title}</h3>
-                  <p>{body}</p>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="section" id="philosophy">
-        <div className="container">
-          <Reveal className="section-head">
-            <div className="eyebrow">My Coaching Philosophy</div>
-            <h2>Meaningful development comes from expanded awareness and deeper perspective</h2>
-          </Reveal>
-
-          <AnimatedGroup className="grid-2">
-            <div className="card glass">
-              <p>
-                I believe every individual has the capacity for meaningful growth.
-                Leadership development is not simply about learning new
-                techniques. It is about expanding awareness, deepening
-                perspective, and building the inner capability to lead more
-                consciously and effectively.
-              </p>
-              <p>
-                My role as a coach is to create a space that is safe, thoughtful,
-                and appropriately challenging, where leaders can reflect openly,
-                examine their current ways of thinking, and discover new
-                possibilities for action.
-              </p>
+          <div className="section-heading split-heading reveal">
+            <div>
+              <p className="eyebrow">My coaching focus</p>
+              <h2>Five capabilities that strengthen leadership impact.</h2>
             </div>
-            <div className="card glass">
-              <h3>Through this process, clients are able to:</h3>
-              <ul className="list">
-                <li>Gain clarity on complex challenges</li>
-                <li>Recognize patterns that may be limiting their leadership</li>
-                <li>Make stronger, more grounded decisions</li>
-                <li>Create practical pathways toward meaningful goals</li>
-                <li>Build the confidence and courage needed for lasting change</li>
-              </ul>
-            </div>
-          </AnimatedGroup>
-        </div>
-      </section>
-
-      <PullQuote>
-        I do not believe in one-size-fits-all coaching. Every engagement is
-        shaped by the individual, their context, and the outcomes they want to
-        create.
-      </PullQuote>
-
-      <section className="section" id="approach">
-        <div className="container">
-          <Reveal className="section-head">
-            <div className="eyebrow">How I Work</div>
-            <h2>A structured coaching process tailored to the individual</h2>
-            <p className="lead">
-              Every coaching engagement is tailored to the individual, but most
-              follow a thoughtful and structured progression. The process is
-              rigorous yet human, reflective yet practical, and always grounded
-              in the realities of leadership.
-            </p>
-          </Reveal>
-
-          <div className="timeline">
-            {[
-              ["01", "Discovery", "We begin by understanding your context, leadership challenges, aspirations, and what meaningful progress would look like."],
-              ["02", "Reflection and Assessment", "We explore strengths, patterns, blind spots, and the internal and external factors shaping your leadership."],
-              ["03", "Goal Alignment", "Together, we define clear coaching priorities and outcomes that matter to your role, your team, and your growth."],
-              ["04", "Coaching Conversations", "Through focused one-to-one sessions, we work on building insight, perspective, confidence, and practical movement on the issues that matter most."],
-              ["05", "Integration and Action", "Coaching creates the most impact when insight turns into action. I support clients in translating reflection into behavioral shifts, better decisions, and sustained leadership growth."],
-            ].map(([num, title, body]) => (
-              <Reveal key={num} className="step">
-                <div className="step-number">{num}</div>
-                <div>
-                  <h3>{title}</h3>
-                  <p>{body}</p>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="section" id="why">
-        <div className="container">
-          <Reveal className="section-head">
-            <div className="eyebrow">Why Clients Choose to Work With Me</div>
-            <h2>Professional coaching expertise shaped by lived leadership experience</h2>
-          </Reveal>
-
-          <Reveal className="prose-block">
             <p>
-              What I bring to coaching is a blend of professional coaching
-              expertise and lived leadership experience.
+              Every engagement is shaped by the leader, the context and the outcomes that
+              matter. These capabilities recur across assignments and leadership levels.
+            </p>
+          </div>
+
+          <div className="focus-grid">
+            <article className="focus-card reveal">
+              <div className="focus-icon">↗</div>
+              <h3>Strategic Thinking</h3>
+              <p>
+                Step back, see the larger system, challenge assumptions and approach decisions
+                with greater clarity and creativity.
+              </p>
+            </article>
+            <article className="focus-card reveal">
+              <div className="focus-icon">◎</div>
+              <h3>Team Excellence</h3>
+              <p>
+                Build aligned, high-performing teams rooted in trust, accountability,
+                capability and shared purpose.
+              </p>
+            </article>
+            <article className="focus-card reveal">
+              <div className="focus-icon">◇</div>
+              <h3>Purpose-Driven Leadership</h3>
+              <p>
+                Connect vision, values and leadership identity to everyday choices, behaviour
+                and responsibility.
+              </p>
+            </article>
+            <article className="focus-card reveal">
+              <div className="focus-icon">◌</div>
+              <h3>Executive Presence</h3>
+              <p>
+                Strengthen credibility, influence, communication and relationships so authority
+                and authenticity reinforce each other.
+              </p>
+            </article>
+            <article className="focus-card reveal">
+              <div className="focus-icon">≈</div>
+              <h3>Emotional Resilience</h3>
+              <p>
+                Build the inner steadiness to navigate ambiguity, setbacks, pressure and change
+                with maturity and composure.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section className="section levels-section">
+        <div className="container">
+          <div className="section-heading centred reveal">
+            <p className="eyebrow">One model, three leadership contexts</p>
+            <h2>The architecture stays constant. The leadership pressure point changes.</h2>
+          </div>
+          <div className="levels-grid">
+            <article className="level-card reveal">
+              <p className="level-label">Emerging managers</p>
+              <h3>From self to team</h3>
+              <ul>
+                <li>New-manager identity</li>
+                <li>Expectations and feedback</li>
+                <li>Delegation with boundaries</li>
+                <li>Confidence and follow-through</li>
+              </ul>
+            </article>
+            <article className="level-card reveal">
+              <p className="level-label">Mid-level managers</p>
+              <h3>From unit leadership to influence</h3>
+              <ul>
+                <li>Managing up and across</li>
+                <li>Strategic thinking</li>
+                <li>Stakeholder alignment</li>
+                <li>Team capability and visibility</li>
+              </ul>
+            </article>
+            <article className="level-card reveal">
+              <p className="level-label">Senior leaders and directors+</p>
+              <h3>From effectiveness to system movement</h3>
+              <ul>
+                <li>Ambiguity and judgement</li>
+                <li>Leading leaders</li>
+                <li>Values under pressure</li>
+                <li>Organisation-level alignment</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section className="section ai-section" id="organisations">
+        <div className="container ai-grid">
+          <div className="ai-copy reveal">
+            <p className="eyebrow">Leadership in the age of AI disruption</p>
+            <h2>
+              Technology changes the context. The human work of leadership becomes more
+              consequential.
+            </h2>
+            <p>
+              As organisations redesign work around AI, leaders need more than tool fluency.
+              They need judgement, agency, stakeholder trust and the ability to translate
+              possibility into responsible operating choices.
             </p>
             <p>
-              With over two decades as a Senior banking executive and several
-              years devoted to executive coaching, I understand leadership not
-              only as a concept but as a real responsibility. I have led large
-              and diverse teams, managed growth mandates, worked within complex
-              institutions, and experienced firsthand the pressures leaders face
-              when performance, people, and expectations all converge.
+              The P.A.C.T. architecture helps leaders convert AI disruption into sound
+              decisions, aligned stakeholders, redesigned work and sustained human behaviour
+              change.
             </p>
-          </Reveal>
-
-          <p className="why-chip-lead">Clients value working with me because I bring</p>
-          <AnimatedGroup className="why-chip-grid">
-            {[
-              "Real-world leadership experience",
-              "Deep coaching presence and listening",
-              "Strategic and commercial understanding",
-              "Sensitivity to the emotional side of leadership",
-              "A balanced approach that is both reflective and practical",
-              "Global coaching experience",
-            ].map((item) => (
-              <div className="why-chip" key={item}>
-                <span className="why-chip-icon">✓</span>
-                <span>{item}</span>
-              </div>
-            ))}
-          </AnimatedGroup>
-        </div>
-      </section>
-
-      <PullQuote>
-        My coaching helps leaders think more clearly, lead more consciously,
-        and act with greater intention.
-      </PullQuote>
-
-      <section className="section" id="results">
-        <div className="container">
-          <Reveal className="section-head">
-            <div className="eyebrow">What Clients Gain</div>
-            <h2>Meaningful shifts in how leaders think, lead, and show up</h2>
-            <p className="lead">
-              Every coaching journey is different, but clients often experience
-              meaningful shifts in how they think, lead, and show up. The value
-              of coaching lies not only in addressing immediate leadership
-              challenges, but also in helping leaders build capabilities that
-              continue long after the engagement ends.
-            </p>
-          </Reveal>
-
-          <AnimatedGroup className="grid-4">
-            {[
-              "Greater strategic clarity",
-              "Improved confidence in decision-making",
-              "Stronger leadership presence",
-              "Better stakeholder relationships",
-              "More effective teams",
-              "Increased self-awareness",
-              "Greater alignment between values and action",
-              "Stronger resilience under pressure",
-            ].map((item) => (
-              <div className="card glass" key={item}>
-                <h3>{item}</h3>
-              </div>
-            ))}
-          </AnimatedGroup>
-        </div>
-      </section>
-
-      <section className="section" id="about">
-        <div className="container">
-          <Reveal className="section-head">
-            <div className="eyebrow">About Arvind</div>
-            <h2>Executive coach, investor, and former business leader</h2>
-          </Reveal>
-
-          <AnimatedGroup className="grid-2">
-            <div className="card glass">
+            <a
+              className="text-link"
+              href="mailto:arvind@solutionsatsource.in?subject=AI-era%20leadership%20coaching"
+            >
+              Discuss an AI-era leadership journey <span>→</span>
+            </a>
+          </div>
+          <div className="ai-cards">
+            <article className="ai-card reveal">
+              <span>01</span>
+              <h3>Possibility to judgement</h3>
               <p>
-                I am an executive coach, investor, and former business leader
-                with a career spanning commercial banking, business leadership,
-                investing, and leadership development.
+                Test assumptions, strengthen verification and retain clear human
+                accountability.
               </p>
+            </article>
+            <article className="ai-card reveal">
+              <span>02</span>
+              <h3>Strategy to operating model</h3>
               <p>
-                I am the Founder of Solutions at Source Consulting, where I
-                support leaders in thriving within today&apos;s complex business
-                landscape through evidence-based coaching frameworks.
+                Translate ambition into roles, workflows, decision rights and practical
+                experiments.
               </p>
+            </article>
+            <article className="ai-card reveal">
+              <span>03</span>
+              <h3>Anxiety to agency</h3>
               <p>
-                Before focusing more deeply on coaching, I spent over two decades
-                in leadership roles across India&apos;s commercial banking sector,
-                including senior positions at HSBC, Citi, and ICICI Bank. These
-                experiences gave me direct exposure to the strategic,
-                operational, and human dimensions of leadership at scale.
+                Help leaders and teams locate their distinctive human contribution and act
+                purposefully.
               </p>
+            </article>
+            <article className="ai-card reveal">
+              <span>04</span>
+              <h3>Deployment to trust</h3>
               <p>
-                Today, I bring that experience into my coaching work, helping
-                leaders grow not only in performance, but also in clarity,
-                presence, resilience, and impact.
+                Build a coherent narrative, stakeholder participation, guardrails and realistic
+                expectations.
               </p>
-            </div>
-            <div className="card glass">
-              <h3>Coaching Credentials</h3>
-              <ul className="list">
-                <li>Professional Certified Coach (PCC) – International Coaching Federation</li>
-                <li>Professional Transformative Coach – CMA Singapore</li>
-                <li>Member, ICF Bangalore Chapter</li>
-              </ul>
-              <h3 style={{ marginTop: "22px" }}>Leadership Background</h3>
-              <ul className="list">
-                <li>Investor in the Indian startup ecosystem and venture debt fund</li>
-                <li>Investor and Head of Business – Stride Fintree Pvt Ltd</li>
-                <li>External Risk Committee Member – Stride Fintree Pvt Ltd</li>
-                <li>Director &amp; Business Head, SME – HSBC Bank</li>
-                <li>Director roles at Citi Bank</li>
-                <li>Group Cluster Head, SME – ICICI Bank</li>
-              </ul>
-            </div>
-          </AnimatedGroup>
-        </div>
-      </section>
-
-      <section className="section" id="industries">
-        <div className="container">
-          <Reveal className="section-head">
-            <div className="eyebrow">Industries &amp; Client Profile</div>
-            <h2>Leaders across sectors, markets, and organizational contexts</h2>
-          </Reveal>
-
-          <AnimatedGroup className="grid-2">
-            <div className="card glass">
-              <p>
-                My coaching work has spanned a wide range of sectors, including
-                manufacturing, software, consulting, finance, utilities, media,
-                education, startups, retail, and real estate.
-              </p>
-              <p>
-                Having coached leaders across all continents, I bring an
-                appreciation for cultural nuance, varied work dynamics, and the
-                different leadership realities that emerge across markets and
-                organizational settings.
-              </p>
-            </div>
-            <div className="card glass">
-              <h3>This breadth enables me to work effectively with leaders while staying grounded in the universal demands of leadership</h3>
-              <ul className="list">
-                <li>Thinking clearly</li>
-                <li>Leading people well</li>
-                <li>Navigating uncertainty</li>
-                <li>Delivering results</li>
-              </ul>
-              <p style={{ marginTop: "4px" }}>
-                A substantial portion of my clients have been senior leaders,
-                including Managing Directors, Directors, and Business Unit
-                Heads, alongside high-potential mid-level leaders preparing for
-                broader mandates.
-              </p>
-            </div>
-          </AnimatedGroup>
-        </div>
-      </section>
-
-      <section className="section" id="testimonials">
-        <div className="container">
-          <Reveal className="section-head">
-            <div className="eyebrow">Testimonials</div>
-            <h2>What clients say</h2>
-          </Reveal>
-
-          <div className="testimonial-masonry">
-            {TESTIMONIALS.map((t) => (
-              <Reveal as="figure" className="testimonial" key={t.name}>
-                <blockquote>{t.quote}</blockquote>
-                <figcaption>
-                  <span className="testimonial-name">{t.name}</span>
-                  {t.title && <span className="testimonial-title">{t.title}</span>}
-                </figcaption>
-              </Reveal>
-            ))}
+            </article>
           </div>
         </div>
       </section>
 
-      {latestPosts.length > 0 && (
-        <section className="section" id="insights">
-          <div className="container">
-            <Reveal className="section-head">
-              <div className="eyebrow">Insights</div>
-              <h2>Latest from the blog</h2>
-            </Reveal>
-            <AnimatedGroup className="blog-grid">
-              {latestPosts.map((post) => (
-                <BlogCard key={post.slug} post={post} />
-              ))}
-            </AnimatedGroup>
+      <section className="section engagement-section">
+        <div className="container">
+          <div className="section-heading split-heading reveal">
+            <div>
+              <p className="eyebrow">How engagements work</p>
+              <h2>Rigorous yet human. Reflective yet practical.</h2>
+            </div>
+            <p>
+              The coaching model is dynamic, while every engagement is clearly contracted,
+              aligned and reviewed—directly with the leader in private coaching, and with
+              agreed sponsor involvement where the organisation funds the journey.
+            </p>
           </div>
-        </section>
-      )}
 
-      <section className="section" id="faq">
-        <div className="container">
-          <Reveal className="section-head">
-            <div className="eyebrow">FAQ</div>
-            <h2>Frequently asked questions</h2>
-          </Reveal>
-          <FaqAccordion />
-        </div>
-      </section>
-
-      <section className="section" id="contact">
-        <div className="container">
-          <Reveal className="cta glass">
-            <div className="cta-grid">
+          <div className="timeline">
+            <article className="timeline-item reveal">
+              <span>01</span>
               <div>
-                <div className="eyebrow">Begin the Conversation</div>
-                <h2>Lead with greater perspective, confidence, and purpose</h2>
-                <p className="lead">
-                  Leadership can be demanding, especially when the stakes are
-                  high and the path ahead is not always clear. A thoughtful
-                  coaching partnership can help you lead with greater
-                  perspective, confidence, and purpose.
-                </p>
+                <h3>Discovery and context</h3>
                 <p>
-                  If you are navigating growth, transition, complexity, or a
-                  broader leadership mandate, I would be glad to explore
-                  whether coaching could support you.
+                  Understand the leader’s mandate, aspirations, business reality and what
+                  meaningful progress would look like.
                 </p>
-                <ContactForm />
               </div>
+            </article>
+            <article className="timeline-item reveal">
+              <span>02</span>
+              <div>
+                <h3>Reflection and assessment</h3>
+                <p>
+                  Explore strengths, patterns, blind spots, stakeholder perspectives and the
+                  internal and external factors shaping leadership.
+                </p>
+              </div>
+            </article>
+            <article className="timeline-item reveal">
+              <span>03</span>
+              <div>
+                <h3>Goal and engagement alignment</h3>
+                <p>
+                  For private coaching, priorities are defined directly with the leader. For
+                  organisation-sponsored coaching, this may also include sponsor alignment,
+                  agreed confidentiality boundaries and observable markers of movement.
+                </p>
+              </div>
+            </article>
+            <article className="timeline-item reveal">
+              <span>04</span>
+              <div>
+                <h3>Coaching conversations and experiments</h3>
+                <p>
+                  Use the P.A.C.T. lenses to build insight, perspective, judgement and
+                  practical movement on the issues that matter most.
+                </p>
+              </div>
+            </article>
+            <article className="timeline-item reveal">
+              <span>05</span>
+              <div>
+                <h3>Integration and sustainment</h3>
+                <p>
+                  Convert learning into behavioural shifts, operating rhythms, stakeholder
+                  feedback and a 60/90-day sustainment plan.
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
 
-              <div className="contact-box">
-                <strong>Arvind Nachaya</strong>
-                <p>Founder, Solutions at Source Consulting</p>
+      <section className="section outcomes-section">
+        <div className="container outcomes-grid">
+          <div className="outcomes-copy reveal">
+            <p className="eyebrow light">What clients gain</p>
+            <h2>Meaningful shifts in how leaders think, decide and show up.</h2>
+            <p>
+              The value of coaching lies not only in addressing the immediate challenge, but in
+              building capabilities that continue after the engagement ends.
+            </p>
+          </div>
+          <div className="outcome-list reveal">
+            <span>Greater strategic clarity</span>
+            <span>More grounded decisions</span>
+            <span>Stronger executive presence</span>
+            <span>Better stakeholder relationships</span>
+            <span>Clearer team accountability</span>
+            <span>Greater alignment between values and action</span>
+            <span>More resilience under pressure</span>
+            <span>Sustained habits and leadership practices</span>
+          </div>
+        </div>
+      </section>
+
+      <section className="section testimonials-section">
+        <div className="container">
+          <div className="section-heading centred reveal">
+            <p className="eyebrow">What clients say</p>
+            <h2>Reflection that creates grounded and lasting movement.</h2>
+          </div>
+
+          <div className="testimonial-slider reveal" aria-roledescription="carousel">
+            <button className="slider-button slider-prev" aria-label="Previous testimonial">
+              ←
+            </button>
+            <div className="testimonial-track">
+              <article className="testimonial active">
+                <blockquote>
+                  “Arvind doesn’t offer answers; he enables shifts, and those shifts endure.”
+                </blockquote>
                 <p>
-                  <a href="mailto:arvind@solutionsatsource.in">arvind@solutionsatsource.in</a>
+                  <strong>Srinivas Burli</strong>
+                  <span>Senior Director, Talent Acquisition · Twilio India</span>
                 </p>
+              </article>
+              <article className="testimonial">
+                <blockquote>
+                  “He enabled me to think differently, stretch my perspectives and explore
+                  possibilities I had not considered before.”
+                </blockquote>
                 <p>
-                  <a href="tel:+919930407361">+91 9930407361</a>
+                  <strong>Dr Lavanya Kannairam</strong>
+                  <span>Senior Manager, Global Early Talent &amp; Regional TA · Caterpillar India</span>
                 </p>
+              </article>
+              <article className="testimonial">
+                <blockquote>
+                  “His ability to ask the right questions helped me step back, appreciate the
+                  bigger picture and arrive at my own answers.”
+                </blockquote>
                 <p>
-                  <a
-                    href="https://www.linkedin.com/in/arvindnachaya/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    LinkedIn: Arvind Nachaya
-                  </a>
+                  <strong>Ipshita Ghosh</strong>
+                  <span>Managing Director · Accenture</span>
                 </p>
+              </article>
+              <article className="testimonial">
+                <blockquote>
+                  “His coaching was pragmatic, insight driven and deeply personal, helping me
+                  translate my values into consistent leadership behaviours.”
+                </blockquote>
+                <p>
+                  <strong>David Pearson</strong>
+                  <span>Senior Brand Director · Mars, Chicago</span>
+                </p>
+              </article>
+            </div>
+            <button className="slider-button slider-next" aria-label="Next testimonial">
+              →
+            </button>
+            <div className="slider-dots" aria-label="Choose testimonial"></div>
+          </div>
+        </div>
+      </section>
+
+      <section className="section about-section" id="about">
+        <div className="container about-grid">
+          <div className="about-visual reveal" aria-label="Arvind Nachaya monogram portrait placeholder">
+            <div className="portrait-frame">
+              <span>AN</span>
+              <small>Replace with approved portrait</small>
+            </div>
+          </div>
+          <div className="about-copy reveal">
+            <p className="eyebrow">About Arvind Nachaya</p>
+            <h2>Coaching expertise grounded in lived leadership responsibility.</h2>
+            <p>
+              I am an executive coach, investor and former business leader with a career
+              spanning commercial banking, business leadership, investing and leadership
+              development.
+            </p>
+            <p>
+              Before focusing more deeply on coaching, I spent over two decades in leadership
+              roles across India’s commercial banking sector, including senior positions at
+              HSBC, Citi and ICICI Bank. These experiences gave me direct exposure to the
+              strategic, operational and human dimensions of leadership at scale.
+            </p>
+            <p>
+              Today, as Founder of Solutions at Source Consulting, I support leaders across
+              industries and geographies to grow in clarity, presence, resilience and impact
+              through a practice-grounded coaching approach.
+            </p>
+            <div className="credentials">
+              <div>
+                <strong>Professional Certified Coach</strong>
+                <span>International Coaching Federation</span>
+              </div>
+              <div>
+                <strong>Professional Transformative Coach</strong>
+                <span>CMA Singapore</span>
+              </div>
+              <div>
+                <strong>Former Director and Business Head</strong>
+                <span>HSBC, Citi and ICICI Bank</span>
+              </div>
+              <div>
+                <strong>Investor and business advisor</strong>
+                <span>Indian startup ecosystem</span>
               </div>
             </div>
-          </Reveal>
+          </div>
+        </div>
+      </section>
+
+      <section className="section faq-section">
+        <div className="container faq-grid">
+          <div className="section-heading reveal">
+            <p className="eyebrow">Frequently asked questions</p>
+            <h2>A clear starting point.</h2>
+            <p>
+              A discovery conversation is an opportunity to understand the context, explore the
+              desired outcomes and assess whether the coaching partnership is the right fit.
+            </p>
+          </div>
+          <div className="faq-list reveal">
+            <details>
+              <summary>Who is your coaching best suited for?</summary>
+              <p>
+                Senior leaders, founders, business heads, directors and emerging leaders who
+                want to grow in effectiveness, clarity and leadership impact.
+              </p>
+            </details>
+            <details>
+              <summary>What kinds of issues can coaching help with?</summary>
+              <p>
+                Strategic thinking, leadership transitions, executive presence, stakeholder
+                influence, team effectiveness, resilience, confidence and greater alignment
+                between purpose and action.
+              </p>
+            </details>
+            <details>
+              <summary>Do you work only with senior executives?</summary>
+              <p>
+                No. Much of my work is with senior leaders, and I also work with mid-level and
+                emerging leaders preparing for broader responsibility and influence.
+              </p>
+            </details>
+            <details>
+              <summary>Can I engage you privately, independently of my company?</summary>
+              <p>
+                Yes. Leaders can contract with me directly and fund their own coaching. No
+                employer nomination or organisational sponsor is required, and the coaching
+                goals are set entirely around what matters to you.
+              </p>
+            </details>
+            <details>
+              <summary>Will my company know that I am being coached?</summary>
+              <p>
+                Not in a privately contracted engagement. The relationship is confidential and
+                there is no reporting to your employer. In organisation-sponsored coaching,
+                information-sharing boundaries are agreed in advance, while the content of
+                coaching conversations remains confidential.
+              </p>
+            </details>
+            <details>
+              <summary>Is coaching virtual or in person?</summary>
+              <p>
+                Engagements can be conducted virtually. In-person sessions may also be possible
+                depending on context and location.
+              </p>
+            </details>
+            <details>
+              <summary>How long does an engagement usually last?</summary>
+              <p>
+                The duration depends on the goals and context. Focused engagements may run for
+                three months, while broader leadership-development journeys commonly span six
+                to twelve months.
+              </p>
+            </details>
+            <details>
+              <summary>How is coaching different from mentoring or consulting?</summary>
+              <p>
+                Coaching does not begin with ready-made answers. It helps the leader think more
+                deeply, access their own clarity and take responsible action. Mentoring or
+                consulting input, when useful, is clearly contracted rather than blended
+                silently into the coaching conversation.
+              </p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <section className="cta-section">
+        <div className="container cta-grid reveal">
+          <div>
+            <p className="eyebrow light">Begin the conversation</p>
+            <h2>Choose the coaching route that fits your context.</h2>
+            <p>
+              Whether you are a leader seeking a private and confidential coaching partnership,
+              or an organisation investing in the growth of a critical leader, the first
+              conversation is an opportunity to clarify the need, the intended outcomes and
+              whether the partnership is the right fit.
+            </p>
+          </div>
+          <div className="cta-actions">
+            <a
+              className="button button-light"
+              href="mailto:arvind@solutionsatsource.in?subject=Private%20Executive%20Coaching%20Enquiry"
+            >
+              I am seeking private coaching
+            </a>
+            <a
+              className="button button-ghost-light"
+              href="mailto:arvind@solutionsatsource.in?subject=Organisation-Sponsored%20Coaching%20Enquiry"
+            >
+              I represent an organisation
+            </a>
+            <a href="tel:+919930407361">+91 99304 07361</a>
+            <a href="mailto:arvind@solutionsatsource.in">arvind@solutionsatsource.in</a>
+          </div>
         </div>
       </section>
     </>
