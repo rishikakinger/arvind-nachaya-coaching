@@ -16,8 +16,8 @@ export default function HomePage() {
             <p className="hero-lead">
               I work with senior leaders, founders and emerging executives to strengthen
               strategic thinking, executive presence, team leadership and resilience so 
-              they can lead with greater clarity. Leaders may engage me privately and 
-              independently or through an organisation-sponsored coaching 
+              they can lead with greater clarity. Leaders may engage me privately 
+              or through an organisation-sponsored coaching 
               journey.   
             </p>
             <p className="hero-support">
