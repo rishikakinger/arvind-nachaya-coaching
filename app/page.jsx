@@ -15,9 +15,10 @@ export default function HomePage() {
             </h1>
             <p className="hero-lead">
               I work with senior leaders, founders and emerging executives to strengthen
-              strategic thinking, executive presence, team leadership and resilience. Leaders
-              may engage me privately and independently of their employer, or through an
-              organisation-sponsored coaching journey.
+              strategic thinking, executive presence, team leadership and resilience so 
+              they can lead with greater clarity. Leaders may engage me privately and 
+              independently or through an organisation-sponsored coaching 
+              journey.   
             </p>
             <p className="hero-support">
               In either setting, coaching creates a confidential space to pause, reflect
@@ -88,8 +89,8 @@ export default function HomePage() {
             <span>Coaching across industries and cultures</span>
           </div>
           <div>
-            <strong>1,300+</strong>
-            <span>Session records informing the model</span>
+            <strong>2,500+</strong>
+            <span>Hours of coaching</span>
           </div>
         </div>
       </section>
@@ -113,7 +114,7 @@ export default function HomePage() {
             <p>
               My coaching begins with the reality the leader is facing. It provides a safe,
               thoughtful and appropriately challenging space to step back, examine
-              assumptions, understand what matters and build a practical path forward.
+              assumptions, understand what matters and build a path forward.
             </p>
           </div>
         </div>
@@ -150,7 +151,7 @@ export default function HomePage() {
           <div className="section-heading split-heading reveal">
             <div>
               <p className="eyebrow">Ways to work together</p>
-              <h2>Coaching can begin with you, or with your organisation.</h2>
+              <h2>Coaching can be : Organisation Sponsored or Private Executive Coaching.</h2>
             </div>
             <p>
               The coaching architecture remains the same. What changes is how the engagement
@@ -164,10 +165,8 @@ export default function HomePage() {
               <p className="mode-label">Private executive coaching</p>
               <h3>For leaders choosing to invest in their own development.</h3>
               <p>
-                You may wish to work with a coach independently of your company, without
-                waiting for a formal leadership programme or organisational nomination. The
-                engagement is contracted directly with you, and your agenda remains entirely
-                your own.
+                You may wish to work with me as a coach. The engagement is contracted directly
+                with you, and your agenda remains entirely your own.
               </p>
               <ul>
                 <li>A confidential thinking space with no organisational sponsor</li>
@@ -201,7 +200,7 @@ export default function HomePage() {
                 reflection and meaningful change.
               </p>
               <ul>
-                <li>Clear three-way alignment between the leader, sponsor and coach</li>
+                <li>Balanced alignment between the leader, sponsor and coach</li>
                 <li>Defined confidentiality boundaries and success markers</li>
                 <li>Optional stakeholder inputs, assessments and progress reviews</li>
                 <li>
@@ -224,9 +223,8 @@ export default function HomePage() {
           <div className="confidentiality-note reveal">
             <strong>Confidentiality is foundational.</strong>
             <span>
-              In private coaching, there is no reporting to an employer. In sponsored
-              coaching, the boundaries of information-sharing are agreed at the outset, while
-              the content of coaching conversations remains confidential.
+             In a corporate sponsored coaching, the boundaries of information-sharing are agreed 
+             at the outset, while the content of coaching conversations remains confidential.   
             </span>
           </div>
         </div>
@@ -247,7 +245,7 @@ export default function HomePage() {
             <span role="listitem">Team accountability</span>
             <span role="listitem">Values under pressure</span>
             <span role="listitem">Emotional resilience</span>
-            <span role="listitem">Career direction</span>
+            <span role="listitem">Preparing for what comes next - Role /  Career </span>
             <span role="listitem">Breaking limiting patterns</span>
           </div>
         </div>
@@ -302,7 +300,7 @@ export default function HomePage() {
                 <p>
                   Surface assumptions, patterns, choices and options that are difficult to see
                   from inside the immediate problem. Explore what becomes possible when the
-                  leader steps beyond the familiar frame.
+                  leader steps back beyond the familiar frame.
                 </p>
                 <div className="lens-question">
                   What are we not yet seeing, and what new choice becomes available if the
@@ -322,10 +320,10 @@ export default function HomePage() {
 
           <div className="pact-proof reveal">
             <p>
-              <strong>Practice-grounded.</strong> The refined architecture emerged from a
-              structured review of 1,326 dated coaching-session records across emerging,
-              mid-level and senior-leader populations, together with client feedback. It
-              reflects an established coaching practice rather than a model imposed after the
+              <strong>Practice-grounded.</strong> The architecture emerged from a
+              structured review of 1,350 coaching-session across emerging, mid-level 
+              and senior-leader populations, together with client feedback. It reflects
+              an established coaching practice rather than a model imposed after the
               fact.
             </p>
           </div>
@@ -377,7 +375,7 @@ export default function HomePage() {
               <div className="focus-icon">↗</div>
               <h3>Strategic Thinking</h3>
               <p>
-                Step back, see the larger system, challenge assumptions and approach decisions
+                Step back, see the larger system, challenge assumptions, being comfortable in ambiguity and approach decisions
                 with greater clarity and creativity.
               </p>
             </article>
@@ -472,8 +470,8 @@ export default function HomePage() {
               possibility into responsible operating choices.
             </p>
             <p>
-              The P.A.C.T. architecture helps leaders convert AI disruption into sound
-              decisions, aligned stakeholders, redesigned work and sustained human behaviour
+              The P.A.C.T. architecture supports leaders convert AI disruption into
+              aligned stakeholders, redesigned work, Build courage to explore new possibilities and sustained human behaviour
               change.
             </p>
             <a
@@ -491,7 +489,7 @@ export default function HomePage() {
               <span>01</span>
               <h3>Possibility to judgement</h3>
               <p>
-                Test assumptions, strengthen verification and retain clear human
+                Test assumptions, strengthen verification, Build courage to explore new possibilities and retain clear human
                 accountability.
               </p>
             </article>
